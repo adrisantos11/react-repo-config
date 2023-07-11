@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./app.scss";
-import Button from "@mui/material/Button";
 
 function App() {
   return (
@@ -61,24 +60,8 @@ function App() {
             </li>
           </ul>
         </li>
-        <li>
-          MUI uses Roboto font, so we have to install it via npm:{" "}
-          <code>npm install @fontsource/roboto</code> and import it in our entry
-          point like this:
-          <pre>
-            <code>{`import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';`}</code>
-          </pre>
-        </li>
-        <li>
-          We could install the Icon font that MUI uses, but the goal is to use
-          Deloitte own library.
-        </li>
       </ol>
       EXAMPLE:
-      <Button variant="contained">Hello World</Button>
       <h2>FIXED PROBLEMS</h2>
       <h3>Ts-config... ????</h3>
       <p>
