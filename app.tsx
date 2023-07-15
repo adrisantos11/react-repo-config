@@ -1,9 +1,11 @@
 import * as React from "react";
 import "./app.scss";
+import { Button, IButton } from "./src/components/Button";
 
 function App() {
   return (
     <div>
+      <Button id="button-testing">Testing 🥳</Button>
       <h1>React app configuration (10/2022)</h1>
       <p>
         React application using <b>Webpack</b>, <b>React</b> and{" "}
