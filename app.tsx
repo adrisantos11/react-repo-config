@@ -2,10 +2,14 @@ import * as React from "react";
 import "./app.scss";
 import { Button, IButton } from "./src/components/Button";
 
+const pngExample = require("./src/assets/images/png/Home_page_v0.png");
+
 function App() {
   return (
     <div>
-      <Button id="button-testing">Testing 🥳</Button>
+      <Button id="button-testing" disabled>
+        Testing 🥳
+      </Button>
       <h1>React app configuration (10/2022)</h1>
       <p>
         React application using <b>Webpack</b>, <b>React</b> and{" "}
@@ -63,8 +67,54 @@ function App() {
           </ul>
         </li>
       </ol>
-      EXAMPLE:
-      <h2>FIXED PROBLEMS</h2>
+      <h1>Font usage</h1>
+      <p>To use a font follow the next steps:</p>
+      <ol>
+        <li>
+          Obtain the Font Files: First, make sure you have the font files
+          (typically with .ttf, .woff, .woff2, .eot, or .svg extensions) that
+          you want to use.
+        </li>
+        <li>Create a "fonts" folder</li>
+        <li>
+          <b>Install necessary loaders</b>: You'll need loaders to handle font
+          files in your Webpack configuration.{" "}
+          <code>npm install -D file-loader</code>
+        </li>
+        <li>
+          <b>Configure Webpack</b>:{" "}
+          <code>{`rules: [
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]',
+        },
+      },
+    ]`}</code>
+        </li>
+        <li>
+          <b>Import and use the font in your application</b>: In your main React
+          component or a global stylesheet (e.g., index.css), import the font
+          using <code>@font-face</code> and set it as the default font for your
+          application.
+        </li>
+      </ol>
+      <h1>Image usage in TS</h1>
+      <code>{`{
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      }`}</code>
+      <p>
+        To use in a TS file, is needed to import it as a module using{" "}
+        <code>
+          const pngExample =
+          require("./src/assets/images/png/Home_page_v0.png");
+        </code>
+      </p>
+      <br />
+      <img style={{ width: "600px" }} src={pngExample} />
+      <h2>TROUBLESHOOTING</h2>
       <h3>Ts-config... ????</h3>
       <p>
         In the tutorial says to create a new file called{" "}

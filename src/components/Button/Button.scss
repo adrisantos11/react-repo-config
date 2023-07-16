@@ -1,3 +1,5 @@
+@import url('../../styles/main_styles.scss');
+
 .c-button {
     position: relative;
     border: 2px solid #35434F;
@@ -14,7 +16,9 @@
     transition: color 0.5s, transform 0.1s, background-color 0.5s;
 
     &:active {
-        transform: translateY(3px)
+        transform: translateY(3px);
+        background-color: #35434F;
+        color: #FBFBFC;
     }
 
     &:hover {
@@ -35,6 +39,10 @@
         z-index: -1;
     }
 
+    &:active::before {
+        background-color: #35434F;
+    }
+
     &::after {
         content: "";
         position: absolute;
@@ -42,15 +50,12 @@
         left: -46px;
         width: 0;
         height: 100%;
-        // background-color: #35434F;
-        border: 2px solid transparent;
-        border-radius: 2px;
         box-sizing: border-box;
         border-right: 46px solid transparent;
         border-top: 46px solid #35434F;
         opacity: 0;
         z-index: -1;
-        transition: width .4s, opacity .4s;
+        transition: width .8s, opacity .8s;
     }
 
     &:hover::after {

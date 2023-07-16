@@ -3,6 +3,7 @@ import "./Button.scss";
 
 export type IButton = {
   id: string;
+  disabled?: boolean;
   children?: React.ReactNode;
 };
 
