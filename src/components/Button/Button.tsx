@@ -9,7 +9,7 @@ export type IButton = {
 
 export const Button: React.FC<IButton> = (props: IButton) => {
   return (
-    <button className="c-button" type="button">
+    <button className="c-button" type="button" disabled>
       {props.children}
     </button>
   );

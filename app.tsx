@@ -67,65 +67,7 @@ function App() {
           </ul>
         </li>
       </ol>
-      <h1>Font usage</h1>
-      <p>To use a font follow the next steps:</p>
-      <ol>
-        <li>
-          Obtain the Font Files: First, make sure you have the font files
-          (typically with .ttf, .woff, .woff2, .eot, or .svg extensions) that
-          you want to use.
-        </li>
-        <li>Create a "fonts" folder</li>
-        <li>
-          <b>Install necessary loaders</b>: You'll need loaders to handle font
-          files in your Webpack configuration.{" "}
-          <code>npm install -D file-loader</code>
-        </li>
-        <li>
-          <b>Configure Webpack</b>:{" "}
-          <code>{`rules: [
-      {
-        test: /\.(woff|woff2|eot|ttf|svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name][ext]',
-        },
-      },
-    ]`}</code>
-        </li>
-        <li>
-          <b>Import and use the font in your application</b>: In your main React
-          component or a global stylesheet (e.g., index.css), import the font
-          using <code>@font-face</code> and set it as the default font for your
-          application.
-        </li>
-      </ol>
-      <h1>Image usage in TS</h1>
-      <code>{`{
-        test: /\.(png|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-      }`}</code>
-      <p>
-        To use in a TS file, is needed to import it as a module using{" "}
-        <code>
-          const pngExample =
-          require("./src/assets/images/png/Home_page_v0.png");
-        </code>
-      </p>
-      <br />
-      <img style={{ width: "600px" }} src={pngExample} />
-      <h2>TROUBLESHOOTING</h2>
-      <h3>Ts-config... ????</h3>
-      <p>
-        In the tutorial says to create a new file called{" "}
-        <code>ts-config.json</code> to introduce all the Typescript
-        configuration - <b>IT DOESN'T WORK</b>
-      </p>
-      <p>
-        Instead of that, create it as <code>tsconfig.json</code>, and it will
-        work properly.
-      </p>
-      <h3>CSS and SCSS loader configuration steps</h3>
+      <h1>Sass configuration and usage</h1>
       <ol>
         <li>
           Install loaders:
@@ -154,12 +96,7 @@ function App() {
               {`{
         test: /\.(sa|sc|c)ss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
-    },
-    {
-    	test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader",
-        options: { limit: false },
-    },`}
+    }`}
             </code>
           </pre>
         </li>
@@ -168,6 +105,58 @@ function App() {
           <code>{`import "./app.scss"`}</code>
         </li>
       </ol>
+
+      <h1>Font configuration and usage</h1>
+      <p>To use a font follow the next steps:</p>
+      <ol>
+        <li>
+          Obtain the Font Files: First, make sure you have the font files
+          (typically with .ttf, .woff, .woff2, .eot, or .svg extensions) that
+          you want to use.
+        </li>
+        <li>Create a "fonts" folder.</li>
+        <li>
+          <b>Configure Webpack</b>:{" "}
+          <code>{`{
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        type: "asset/resource",
+        options: { limit: false },
+      }`}</code>
+        </li>
+        <li>
+          <b>Import and use the font in your application</b>: In your main React
+          component or a global stylesheet (e.g., main_style.css), import the
+          font using <code>@font-face</code> and set it as the default font for
+          your application (Ex:
+          <code>font-family: 'Assistant', sans-serif;</code>).
+        </li>
+      </ol>
+      <h1>Image configuration and usage in TS</h1>
+      <p>Import a new rule in webpack:</p>
+      <code>{`{
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      }`}</code>
+      <p>
+        To use in a TS file, is needed to import it as a module using:{" "}
+        <code>
+          const pngExample =
+          require("./src/assets/images/png/Home_page_v0.png");
+        </code>
+      </p>
+      <br />
+      <img style={{ width: "600px" }} src={pngExample} />
+      <h2>TROUBLESHOOTING</h2>
+      <h3>Ts-config... ????</h3>
+      <p>
+        In the tutorial says to create a new file called{" "}
+        <code>ts-config.json</code> to introduce all the Typescript
+        configuration - <b>IT DOESN'T WORK</b>
+      </p>
+      <p>
+        Instead of that, create it as <code>tsconfig.json</code>, and it will
+        work properly.
+      </p>
     </div>
   );
 }

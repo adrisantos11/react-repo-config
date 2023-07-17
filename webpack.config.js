@@ -34,11 +34,10 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
-      //   {
-      //     test: /\.(woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-      //     type: "asset/resource",
-      //     options: { limit: false },
-      //   },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {

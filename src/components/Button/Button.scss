@@ -16,7 +16,7 @@
     transition: color 0.5s, transform 0.1s, background-color 0.5s;
 
     &:active {
-        transform: translateY(3px);
+        transform: translateY(2px);
         background-color: #35434F;
         color: #FBFBFC;
     }
@@ -61,6 +61,20 @@
     &:hover::after {
         width: calc(100% + 92px);
         opacity: 1;
-        // transition: width 0.3s;
+    }
+
+    &:disabled {
+        background-color: transparent;
+        color: #C5CCD3;
+        border-color: #C5CCD3;
+        transition: none;
+
+        &:hover {
+            cursor: auto;
+        }
+
+        &::before,&::after {
+            opacity: 0;
+        }
     }
 }
