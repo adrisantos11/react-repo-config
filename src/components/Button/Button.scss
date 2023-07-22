@@ -1,8 +1,9 @@
-@import url('../../styles/main_styles.scss');
+@import '../../styles/main_styles.scss';
 
 .c-button {
     position: relative;
-    border: 2px solid #35434F;
+    width: fit-content;
+    border: 2px solid $grey-6;
     font-size: 1.25rem;
     background-color: transparent;
     outline: none;
@@ -10,19 +11,23 @@
     padding: 0.5rem 3rem;
     line-height: 1.5rem;
     letter-spacing: 0.125rem;
-    color: #35434F;
-
+    color: $grey-6;
+    white-space: nowrap;
     overflow: hidden;
-    transition: color 0.5s, transform 0.1s, background-color 0.5s;
+    transition: color .8s, transform 0.1s, background-color .8s;
 
     &:active {
         transform: translateY(0.125rem);
-        background-color: #35434F;
-        color: #FBFBFC;
+        background-color: $grey-6;
+        color: $grey-0;
+
+        &:disabled {
+            transform: none;
+        }
     }
 
     &:hover {
-        color: white;
+        color: $white;
         cursor: pointer;
         box-shadow: 0px 0px 0.25 0.125rem rgba(53, 67, 79, 0.20);
     }
@@ -34,9 +39,8 @@
         left: -3rem;
         width: 0;
         height: 100%;
-        box-sizing: border-box;
         border-right: 3rem solid transparent;
-        border-top: 3rem solid #35434F;
+        border-top: 3rem solid $grey-6;
         opacity: 0;
         z-index: -1;
         transition: width .8s, opacity .8s;
@@ -49,8 +53,8 @@
 
     &:disabled {
         background-color: transparent;
-        color: #C5CCD3;
-        border-color: #C5CCD3;
+        color: $grey-3;
+        border-color: $grey-3;
         transition: none;
 
         &:hover {

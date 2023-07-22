@@ -1,13 +1,39 @@
 import * as React from "react";
 import "./app.scss";
 import { Button, IButton } from "./src/components/Button";
+import { ButtonIcon } from "./src/components/ButtonIcon";
 
 const pngExample = require("./src/assets/images/png/Home_page_v0.png");
 
 function App() {
 	return (
 		<div>
-			<Button id="button-testing">Testing 🥳</Button>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "8px",
+				}}
+			>
+				<Button id="button-testing">Testing</Button>
+				<Button id="button-testing">Testing 🥳</Button>
+				<Button id="button-testing" disabled>
+					Testing 🥳
+				</Button>
+			</div>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "8px",
+				}}
+			>
+				<ButtonIcon id="button-icon-testing">😊</ButtonIcon>
+				<ButtonIcon id="button-icon-testing">T</ButtonIcon>
+				<ButtonIcon id="button-icon-testing" disabled>
+					T
+				</ButtonIcon>
+			</div>
 			<h1>React app configuration (10/2022)</h1>
 			<p>
 				React application using <b>Webpack</b>, <b>React</b> and{" "}
