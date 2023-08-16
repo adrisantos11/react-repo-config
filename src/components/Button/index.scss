@@ -14,7 +14,7 @@
     color: $grey-6;
     white-space: nowrap;
     overflow: hidden;
-    transition: color .8s, transform 0.1s, background-color .8s;
+    transition: color .8s, transform 0.2s, background-color .8s;
 
     &:active {
         transform: translateY(0.125rem);

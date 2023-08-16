@@ -1,38 +1,32 @@
 import * as React from "react";
 import "./app.scss";
-import { Button, IButton } from "./src/components/Button";
-import { ButtonIcon } from "./src/components/ButtonIcon";
+import Button from "./src/components/Button";
+import ButtonIcon from "./src/components/ButtonIcon";
+import Image from "./src/components/Image";
+import Dropdown from "./src/components/Dropdown";
+import imagesObj from "./src/assets/images";
 
 const pngExample = require("./src/assets/images/png/Home_page_v0.png");
 
 function App() {
 	return (
 		<div>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "8px",
-				}}
-			>
-				<Button id="button-testing">Testing</Button>
-				<Button id="button-testing">Testing 🥳</Button>
-				<Button id="button-testing" disabled>
+			<div className="component-wrapper">
+				<Button id="button-testing-1">Testing</Button>
+				<Button id="button-testing-2">Testing 🥳</Button>
+				<Button id="button-testing-3" disabled>
 					Testing 🥳
 				</Button>
 			</div>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "8px",
-				}}
-			>
-				<ButtonIcon id="button-icon-testing">😊</ButtonIcon>
-				<ButtonIcon id="button-icon-testing">T</ButtonIcon>
-				<ButtonIcon id="button-icon-testing" disabled>
+			<div className="component-wrapper">
+				<ButtonIcon id="button-icon-testing-1">😊</ButtonIcon>
+				<ButtonIcon id="button-icon-testing-2">T</ButtonIcon>
+				<ButtonIcon id="button-icon-testing-3" disabled>
 					T
 				</ButtonIcon>
+			</div>
+			<div>
+				<Dropdown id="dropdown-testing-1"></Dropdown>
 			</div>
 			<h1>React app configuration (10/2022)</h1>
 			<p>
@@ -161,6 +155,7 @@ function App() {
 				</p>
 				<br />
 				<img style={{ width: "600px" }} src={pngExample} />
+				<Image id="image-test" image={imagesObj["home_page_v0"]} />
 			</div>
 
 			<div>
