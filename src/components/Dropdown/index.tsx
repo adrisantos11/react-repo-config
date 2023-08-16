@@ -9,8 +9,16 @@ export type IDropdown = {
 export const Dropdown: React.FC<IDropdown> = (props: IDropdown) => {
 	return (
 		<div className="c-dropdown" id={`${props.id}-select`}>
-			<label htmlFor=""></label>
-			<input type="text" />
+			<input
+				className="c-dropdown__input"
+				type="checkbox"
+				id={`${props.id}-input`}
+			/>
+			<label className="c-dropdown__header" htmlFor={`${props.id}-input`}>
+				<span className="c-dropdown__header-text">Selected</span>
+				<span className="c-dropdown__header-icon"></span>
+			</label>
+			<div className="c-dropdown__body"></div>
 		</div>
 	);
 };

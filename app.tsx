@@ -10,7 +10,7 @@ const pngExample = require("./src/assets/images/png/Home_page_v0.png");
 
 function App() {
 	return (
-		<div>
+		<div className="react-repo-config light-mode">
 			<div className="component-wrapper">
 				<Button id="button-testing-1">Testing</Button>
 				<Button id="button-testing-2">Testing 🥳</Button>

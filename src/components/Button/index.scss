@@ -1,9 +1,21 @@
 @import '../../styles/main_styles.scss';
 
+.react-repo-config {
+    &.light-mode .c-button {
+        --btn-border-color: #{$grey-6};
+        --btn-bckg-color: #{$grey-6};
+    }
+
+    &.dark-mode .c-button {
+        --btn-border-color: red;
+        --btn-bckg-color: red;
+    }
+}
+
 .c-button {
     position: relative;
     width: fit-content;
-    border: 2px solid $grey-6;
+    border: 2px solid var(--btn-border-color);
     font-size: 1.25rem;
     background-color: transparent;
     outline: none;
@@ -18,7 +30,7 @@
 
     &:active {
         transform: translateY(0.125rem);
-        background-color: $grey-6;
+        background-color: var(--btn-bckg-color);
         color: $grey-0;
 
         &:disabled {
@@ -40,7 +52,7 @@
         width: 0;
         height: 100%;
         border-right: 3rem solid transparent;
-        border-top: 3rem solid $grey-6;
+        border-top: 3rem solid var(--btn-bckg-color);
         opacity: 0;
         z-index: -1;
         transition: width .8s, opacity .8s;
