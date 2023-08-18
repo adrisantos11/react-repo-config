@@ -1,0 +1,15 @@
+@import '../../styles/main_styles.scss';
+
+.react-repo-config {
+    &.light-mode .c-template {
+        # Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-template {
+        # Example: --btn-active-bckg-color: red;
+    }
+}
+
+.p-template {
+    position: relative;
+}

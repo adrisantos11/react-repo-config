@@ -1,10 +1,10 @@
 import * as React from "react";
 import "./app.scss";
-import Button from "./src/components/Button";
-import ButtonIcon from "./src/components/ButtonIcon";
-import Image from "./src/components/Image";
-import Dropdown from "./src/components/Dropdown";
-import imagesObj from "./src/assets/images";
+import Button from "@components/Button";
+import ButtonIcon from "@components/ButtonIcon";
+import Image from "@components/Image";
+import Dropdown from "@components/Dropdown";
+import imagesObj from "@/assets/images";
 
 const pngExample = require("./src/assets/images/png/Home_page_v0.png");
 
