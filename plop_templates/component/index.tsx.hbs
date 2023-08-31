@@ -11,7 +11,7 @@ export type I{{name}} = {
  * @returns {{name}} component
  */
 const {{name}}: React.FC<I{{name}}> = (props: I{{name}}) => {
-	return <div className="c-{{toLowerCase name}}">{{name}}</div>;
+	return <div className="c-{{toKebabCase name}}">{{name}}</div>;
 };
 
 export default React.memo({{name}});

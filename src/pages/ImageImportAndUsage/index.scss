@@ -1,15 +1,15 @@
 @import '../../styles/main_styles.scss';
 
 .react-repo-config {
-    &.light-mode .c-{{toKebabCase name}} {
+    &.light-mode .c-image-import-and-usage {
         // Example: --btn-active-bckg-color: red;
     }
 
-    &.dark-mode .c-{{toKebabCase name}} {
+    &.dark-mode .c-image-import-and-usage {
         // Example: --btn-active-bckg-color: red;
     }
 }
 
-.p-{{toKebabCase name}} {
+.p-image-import-and-usage {
     position: relative;
 }

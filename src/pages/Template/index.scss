@@ -2,14 +2,15 @@
 
 .react-repo-config {
     &.light-mode .c-template {
-        # Example: --btn-active-bckg-color: red;
+        // Example: --btn-active-bckg-color: red;
     }
 
     &.dark-mode .c-template {
-        # Example: --btn-active-bckg-color: red;
+        // Example: --btn-active-bckg-color: red;
     }
 }
 
 .p-template {
     position: relative;
+    background-color: linear-gradient(270deg, #FBFBFC 0%, #EFF2F4 24.27%, #EFF2F4 81.04%, #FBFBFC 100%);
 }
