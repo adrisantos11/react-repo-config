@@ -1,0 +1,6 @@
+%ph-text-select {
+    &::selection {
+        color: $grey-0;
+        background-color: $grey-6;
+    }
+}

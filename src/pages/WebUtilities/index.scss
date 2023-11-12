@@ -1,0 +1,18 @@
+@import '../../styles/main_styles.scss';
+
+.react-repo-config {
+    &.light-mode .c-web-utilities {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-web-utilities {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.p-web-utilities {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

@@ -1,0 +1,26 @@
+@import "../../styles/main_styles.scss";
+
+.react-repo-config {
+    &.light-mode .c-blog-template {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-blog-template {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.p-blog-template {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+
+    &__container {
+        position: relative;
+        width: 960px;
+        display: flex;
+        flex-direction: column;
+    }
+}

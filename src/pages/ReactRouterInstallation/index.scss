@@ -1,4 +1,4 @@
-@import '../../styles/main_styles.scss';
+@import "../../styles/main_styles.scss";
 
 .react-repo-config {
     &.light-mode .c-react-router-installation {
@@ -12,4 +12,15 @@
 
 .p-react-router-installation {
     position: relative;
+
+    span {
+        @include m-body();
+        color: $grey-7;
+    }
+
+    &__title {
+        @include m-heading-1;
+        color: $grey-6;
+        text-align: center;
+    }
 }

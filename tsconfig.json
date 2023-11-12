@@ -1,24 +1,27 @@
 {
-	"compilerOptions": {
-		"outDir": "./dist/",
-		"sourceMap": true,
-		"noImplicitAny": true,
-		"module": "es6",
-		"target": "es5",
-		"jsx": "react",
-		"allowJs": true,
-		"moduleResolution": "node",
-
-		"baseUrl": "src",
-		"paths": {
-			"@/*": ["*"],
-			"@components/*": ["components/*"],
-			"@widgets/*": ["widgets/*"],
-			"@pages/*": ["pages/*"],
-			"@images/*": ["assets/images/*"],
-			"@fonts/*": ["assets/fonts/*"],
-			"@styles/*": ["styles/*"],
-			"@utils/*": ["utils/*"]
-		}
-	}
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "ES2020",
+        "lib": ["es6", "dom", "es2017"],
+        "target": "es5",
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "src",
+        "paths": {
+            "@/*": ["*"],
+            "@components/*": ["components/*"],
+            "@widgets/*": ["widgets/*"],
+            "@pages/*": ["pages/*"],
+            "@images/*": ["assets/images/*"],
+            "@fonts/*": ["assets/fonts/*"],
+            "@styles/*": ["styles/*"],
+            "@utils/*": ["utils/*"]
+        }
+    }
 }

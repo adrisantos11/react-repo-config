@@ -1,4 +1,4 @@
-@import '../../styles/main_styles.scss';
+@import "../../styles/main_styles.scss";
 
 .react-repo-config {
     &.light-mode .c-button {
@@ -13,20 +13,20 @@
 }
 
 .c-button {
+    @include m-body(500);
+
     position: relative;
     width: fit-content;
     border: 2px solid var(--btn-border-color);
-    font-size: 1.25rem;
     background-color: transparent;
     outline: none;
     border-radius: 0.125rem;
-    padding: 0.5rem 3rem;
-    line-height: 1.5rem;
-    letter-spacing: 0.125rem;
+    padding: 0.25rem 2rem;
     color: $grey-6;
     white-space: nowrap;
     overflow: hidden;
-    transition: color .8s, transform 0.2s, background-color .8s;
+    transition: color 0.8s, transform 0.2s, background-color 0.8s;
+    user-select: none;
 
     &:active {
         transform: translateY(0.125rem);
@@ -41,7 +41,7 @@
     &:hover {
         color: $white;
         cursor: pointer;
-        box-shadow: 0px 0px 0.25 0.125rem rgba(53, 67, 79, 0.20);
+        box-shadow: 0px 0px 0.25 0.125rem rgba(53, 67, 79, 0.2);
     }
 
     &::after {
@@ -55,7 +55,7 @@
         border-top: 3rem solid var(--btn-bckg-color);
         opacity: 0;
         z-index: -1;
-        transition: width .8s, opacity .8s;
+        transition: width 0.8s, opacity 0.8s;
     }
 
     &:hover::after {
@@ -73,7 +73,8 @@
             cursor: auto;
         }
 
-        &::before,&::after {
+        &::before,
+        &::after {
             opacity: 0;
         }
     }

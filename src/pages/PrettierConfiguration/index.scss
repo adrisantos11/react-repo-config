@@ -1,0 +1,15 @@
+@import '../../styles/main_styles.scss';
+
+.react-repo-config {
+    &.light-mode .c-prettier-configuration {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-prettier-configuration {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.p-prettier-configuration {
+    position: relative;
+}

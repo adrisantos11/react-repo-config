@@ -1,0 +1,60 @@
+@import "./placeholders";
+
+@mixin m-heading-1 {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 3.375rem;
+    line-height: 3.5rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.3375rem;
+}
+
+@mixin m-heading-2($font-width: 400) {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-style: normal;
+    font-weight: $font-width;
+    letter-spacing: 0.3375rem;
+}
+
+@mixin m-heading-3($font-width: 400) {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-style: normal;
+    font-weight: $font-width;
+    letter-spacing: 0.3375rem;
+}
+
+@mixin m-heading-4($font-width: 400) {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-style: normal;
+    font-weight: $font-width;
+    letter-spacing: 0.3375rem;
+}
+
+@mixin m-body($font-width: 400) {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-style: normal;
+    font-weight: $font-width;
+    letter-spacing: 0.1rem;
+}
+
+@mixin m-notes($font-width: 400) {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-style: normal;
+    font-weight: $font-width;
+}

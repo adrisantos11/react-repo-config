@@ -1,11 +1,14 @@
 @import "./color_palette";
+@import "./mixins";
+@import "./icomoon_icons";
+@import "./placeholders";
 
 @font-face {
-    font-family: 'Assistant';
-    src: '../assets/fonts/Assistant-VariableFont_wght.ttf' format('ttf');
+    font-family: "Assistant";
+    src: "../assets/fonts/Assistant-VariableFont_wght.ttf" format("ttf");
 }
 
 html {
-    font-family: 'Assistant', sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: 16px;
 }
