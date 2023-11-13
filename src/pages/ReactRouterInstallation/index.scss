@@ -13,14 +13,31 @@
 .p-react-router-installation {
     position: relative;
 
-    span {
-        @include m-body();
-        color: $grey-7;
-    }
-
     &__title {
         @include m-heading-1;
         color: $grey-6;
         text-align: center;
+    }
+
+    &__subtitle {
+        @include m-heading-3;
+        color: $grey-6;
+        text-align: center;
+    }
+
+
+    &__step {
+        @include m-heading-3(600);
+        color: $grey-6;
+        text-align: center;
+    }
+
+    &__warning {
+        color: orange !important;
+    }
+
+    &__text {
+        @include m-body();
+        color: $grey-7;
     }
 }

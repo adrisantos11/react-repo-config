@@ -12,3 +12,9 @@ html {
     font-family: "Assistant", sans-serif;
     font-size: 16px;
 }
+
+.text-paragraph {
+    @include m-body();
+    color: $grey-7;
+    margin-bottom: .25rem;
+}
