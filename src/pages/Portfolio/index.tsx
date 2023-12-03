@@ -6,6 +6,31 @@ import Button from "@components/Button";
 import { IconTypes } from "@/assets/icons";
 import { useNavigate } from "react-router-dom";
 
+const addZero = (number: number): string => {
+    const stringNumber = String(number);
+    if (stringNumber.length === 1) {
+        return `0${stringNumber}`;
+    } else return stringNumber;
+};
+
+interface IDate {
+    seconds: string;
+    minutes: string;
+    hours: string;
+    day: string;
+    month: string;
+    year: string;
+}
+
+const DATE_INITIAL_STATE: IDate = {
+    seconds: "--",
+    minutes: "--",
+    hours: "--",
+    day: "--",
+    month: "--",
+    year: "--",
+};
+
 export type IPortfolio = {
     id: string;
 };
@@ -17,6 +42,22 @@ export type IPortfolio = {
  */
 const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const navigate = useNavigate();
+    const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
+    const [styleMode, setStyleMode] = React.useState<string>("light");
+
+    React.useEffect(() => {
+        setInterval(() => {
+            const date = new Date();
+            setDate({
+                seconds: addZero(date.getSeconds()),
+                minutes: addZero(date.getMinutes()),
+                hours: addZero(date.getHours()),
+                day: addZero(date.getDate()),
+                month: addZero(date.getMonth() + 1),
+                year: addZero(date.getFullYear()),
+            });
+        }, 1000);
+    });
 
     return (
         <div className="p-portfolio">
@@ -46,6 +87,40 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                 </div>
                 <Button id="download-cv">Download CV</Button>
             </div>
+            <div className="p-portfolio__clock">
+                <div className="p-portfolio__date">
+                    <span>{date.day}</span>
+                    <span>/</span>
+                    <span>{date.month}</span>
+                    <span>/</span>
+                    <span>{date.year}</span>
+                </div>
+                <div className="p-portfolio__hour">
+                    <span>{date.hours}</span>
+                    <span>:</span>
+                    <span>{date.minutes}</span>
+                    <span>:</span>
+                    <span>{date.seconds}</span>
+                </div>
+            </div>
+            <div
+                className="p-portfolio__dark-mode-toogle"
+                onClick={() => {
+                    console.log(styleMode);
+                    if (styleMode === "light") setStyleMode("dark");
+                    else if (styleMode === "dark") setStyleMode("light");
+                }}
+            >
+                <Image
+                    id="dark-mode-icon"
+                    image={
+                        styleMode === "light"
+                            ? imagesObj["sun-icon"]
+                            : imagesObj["moon-icon"]
+                    }
+                    height={4}
+                ></Image>
+            </div>
             <div className="p-portfolio__center-content">
                 <div className="p-portfolio__bckg-circle"></div>
                 <div className="p-portfolio__slogan">
@@ -68,35 +143,33 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     height={4}
                 ></Image>
             </div>
-            <div className="p-portfolio__social">
-                <span
-                    className={`icon-${IconTypes["linkedin"]} p-portfolio__social-icon`}
-                    onClick={() =>
-                        window.open(
-                            "https://www.linkedin.com/in/adrian-santos-mena-66578712a",
-                            "_blank"
-                        )
-                    }
-                ></span>
-                <span
-                    className={`icon-${IconTypes["instagram"]} p-portfolio__social-icon`}
-                    onClick={() =>
-                        window.open(
-                            "https://www.instagram.com/adrisantos_11/",
-                            "_blank"
-                        )
-                    }
-                ></span>
-                <span
-                    className={`icon-${IconTypes["pinterest"]} p-portfolio__social-icon`}
-                    onClick={() =>
-                        window.open(
-                            "https://www.pinterest.es/adrisantos11/",
-                            "_blank"
-                        )
-                    }
-                ></span>
-            </div>
+            <span
+                className={`icon-${IconTypes["linkedin"]} p-portfolio__social-icon p-portfolio__social-icon--linked-in`}
+                onClick={() =>
+                    window.open(
+                        "https://www.linkedin.com/in/adrian-santos-mena-66578712a",
+                        "_blank"
+                    )
+                }
+            ></span>
+            <span
+                className={`icon-${IconTypes["instagram"]} p-portfolio__social-icon p-portfolio__social-icon--insta`}
+                onClick={() =>
+                    window.open(
+                        "https://www.instagram.com/adrisantos_11/",
+                        "_blank"
+                    )
+                }
+            ></span>
+            <span
+                className={`icon-${IconTypes["pinterest"]} p-portfolio__social-icon p-portfolio__social-icon--pinterest`}
+                onClick={() =>
+                    window.open(
+                        "https://www.pinterest.es/adrisantos11/",
+                        "_blank"
+                    )
+                }
+            ></span>
         </div>
     );
 };

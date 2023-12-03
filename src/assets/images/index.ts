@@ -6,7 +6,10 @@ const imagesObj = {
     "web-logo": require("./svg/web-logo.svg"),
     "web-logo-dark": require("./svg/web-logo-dark.svg"),
     "bulb-light": require("./svg/bulb-light.svg"),
-    "portfolio-self-img":require("./png/portfolio-self-img.png")
+    "portfolio-self-img":require("./png/portfolio-self-img.png"),
+    "sun-icon":require("./svg/sun.svg"),
+    "moon-icon":require("./svg/moon.svg")
+
 }
 
 export default imagesObj;

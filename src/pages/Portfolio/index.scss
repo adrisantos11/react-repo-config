@@ -56,6 +56,37 @@
         }
     }
 
+    &__clock {
+        position: absolute;
+        top: 6rem;
+        right: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__date {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        span {
+            @include m-heading-3(500);
+            color: $grey-6;
+        }
+    }
+
+    &__hour {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+
+        span {
+            @include m-body(400);
+            color: $grey-6;
+        }
+    }
+
     &__profile {
         @include m-heading-4();
         color: $grey-6;
@@ -64,7 +95,7 @@
 
     &__center-content {
         position: absolute;
-        min-width: 35rem;
+        min-width: 40rem;
         width: 40%;
         aspect-ratio: 1;
         bottom: 0;
@@ -93,7 +124,7 @@
         position: absolute;
         top: 0;
         bottom: 20%;
-        left: -20%;
+        left: -15%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -128,22 +159,68 @@
         position: absolute;
         bottom: 6rem;
         left: 6rem;
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
     }
 
     &__social-icon {
+        position: absolute;
         cursor: pointer;
+        transition: all 0.5s ease;
+        font-size: 1.25rem !important;
+
         &::before {
             color: $grey-6 !important;
+        }
+
+        &:hover {
+            font-size: 1.75rem !important;
+        }
+
+        &--linked-in {
+            left: 6rem;
+            bottom: 6rem;
+        }
+        &--insta {
+            left: 9rem;
+            bottom: 6rem;
+        }
+        &--pinterest {
+            left: 12rem;
+            bottom: 6rem;
+        }
+    }
+
+    &__dark-mode-toogle {
+        position: absolute;
+        top: 10rem;
+        right: 6rem;
+        height: 2rem;
+        aspect-ratio: 1;
+        // border: 0.125rem solid $grey-3;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: all 0.5s ease;
+        background-color: $grey-1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: $grey-2;
         }
     }
 
     #sm-portfolio-logo {
+        position: relative;
         cursor: pointer;
         height: 4rem;
         width: fit-content;
+        z-index: 3;
+        transition: all 0.5s ease;
+
+        &:hover {
+            height: 4.25rem;
+        }
     }
 
     #bulb-portfolio-image {
