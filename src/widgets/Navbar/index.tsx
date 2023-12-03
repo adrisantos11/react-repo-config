@@ -19,7 +19,9 @@ const Navbar: React.FC<INavbar> = (props: INavbar) => {
 
     return (
         <div className="w-navbar">
-            <Image id="logo-web" image={imagesObj["web-logo"]}></Image>
+            <span onClick={() => navigate("/")}>
+                <Image id="logo-web" image={imagesObj["web-logo"]}></Image>
+            </span>
             <div className="w-navbar__items">
                 <span
                     className="w-navbar__item"

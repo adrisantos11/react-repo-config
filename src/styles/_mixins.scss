@@ -1,13 +1,13 @@
 @import "./placeholders";
 
-@mixin m-heading-1 {
+@mixin m-heading-1($font-width: 700) {
     @extend %ph-text-select;
     font-family: "Assistant", sans-serif;
     font-size: 3.375rem;
     line-height: 3.5rem;
     font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.3375rem;
+    font-weight: $font-width;
+    letter-spacing: 0.25rem;
 }
 
 @mixin m-heading-2($font-width: 400) {
@@ -17,7 +17,7 @@
     line-height: 2.5rem;
     font-style: normal;
     font-weight: $font-width;
-    letter-spacing: 0.3375rem;
+    letter-spacing: 0.25rem;
 }
 
 @mixin m-heading-3($font-width: 400) {
@@ -27,7 +27,7 @@
     line-height: 1.75rem;
     font-style: normal;
     font-weight: $font-width;
-    letter-spacing: 0.3375rem;
+    letter-spacing: 0.25rem;
 }
 
 @mixin m-heading-4($font-width: 400) {
@@ -37,7 +37,7 @@
     line-height: 1.5rem;
     font-style: normal;
     font-weight: $font-width;
-    letter-spacing: 0.3375rem;
+    letter-spacing: 0.25rem;
 }
 
 @mixin m-body($font-width: 400) {

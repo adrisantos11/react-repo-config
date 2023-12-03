@@ -7,6 +7,7 @@ import WebUtilities from "@/pages/WebUtilities";
 import Link from "@components/Link";
 import Navbar from "@/widgets/Navbar";
 import BlogTemplate from "@pages/BlogTemplate";
+import Portfolio from "@pages/Portfolio";
 
 const TestComponent: React.FC = () => (
     <div style={{ color: "orange" }}>
@@ -19,25 +20,26 @@ const Navigate: React.FC = () => {
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <Link
+                id="portfolio-link"
+                text="Portfolio"
+                onClick={() => navigate("/portfolio")}
+            />
+            <Link
                 id="component-library-link"
                 text="Component library"
                 onClick={() => navigate("/component-library")}
-            ></Link>
+            />
             <Link
                 id="react-router-installation-link"
                 text="React router installation"
                 onClick={() => navigate("/react-router-installation")}
-            ></Link>
-            <Link
-                id="app-link"
-                text="App"
-                onClick={() => navigate("/app")}
-            ></Link>
+            />
+            <Link id="app-link" text="App" onClick={() => navigate("/app")} />
             <Link
                 id="web-utilities-link"
                 text="Web utilities"
                 onClick={() => navigate("/web-utilities")}
-            ></Link>
+            />
         </div>
     );
 };
@@ -99,6 +101,10 @@ const router = createBrowserRouter([
                 ],
             },
         ],
+    },
+    {
+        path: "portfolio",
+        element: <Portfolio id="portfolio-page" />,
     },
 ]);
 
