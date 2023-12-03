@@ -20,34 +20,47 @@ const ReactRouterInstallation: React.FC<IReactRouterInstallation> = (
             <h1 className="p-react-router-installation__title">
                 REACT ROUTER INSTALLATION AND CONFIGURATION
             </h1>
-            <span>
-                <span>
+            <h2 className="p-react-router-installation__subtitle">
+                How to install, configure and use React Router with some
+                examples
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <span className="text-paragraph">
                     <b>IMPORTANT!!</b>
                 </span>
-                <th></th>
-                <span>
+                <span className="text-paragraph">
                     Have a look to the webpack installation and configuration to
                     start from the same point.
                 </span>
-            </span>
-            <span style={{ color: "red" }}>
+            </div>
+            <span className="text-paragraph p-react-router-installation__warning">
                 Introduce little explanation of how react router works (with
                 some
                 <b> images</b>)
             </span>
-            <div>
-                <h2>1. React router installation</h2>
-                Install last version of react-router-dom (actual version
-                v6.15.0) using npm install react-router-dom Do not install it in
-                dev deps because we will need it in our final prod bundle.
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <span className="p-react-router-installation__step">
+                    React router installation
+                </span>
+                <span className="text-paragraph">
+                    Install last version of react-router-dom (actual version
+                    v6.15.0) using npm install react-router-dom Do not install
+                    it in dev deps because we will need it in our final prod
+                    bundle.
+                </span>
             </div>
-            <div>
-                <h2>2. Create file where the routes will be</h2>
-                In a new file (important to create it with the .tsx or .jsx
-                extension, depending wich language are you using in the project{" "}
-                {`=>`} go to troubleshooting 1), import from react-router-dom:
-                createBrowserRouter.
-                <span style={{ color: "red" }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <span className="p-react-router-installation__step">
+                    Create file where the routes will be
+                </span>
+                <span className="text-paragraph">
+                    In a new file (important to create it with the .tsx or .jsx
+                    extension, depending wich language are you using in the
+                    project {`=>`} go to troubleshooting 1), import from
+                    react-router-dom: createBrowserRouter.
+                </span>
+
+                <span style={{ color: "red" }} className="text-paragraph">
                     CreateBrowser definition and explanation (with images) with
                     an explanation of RouteObject
                 </span>
@@ -61,7 +74,7 @@ const router = createBrowserRouter([
 ]);
 
 export default router;`}</code>
-                <span>
+                <span className="text-paragraph">
                     Now going to the / url (in my case: http://localhost:3030/
                     or just http://localhost:3030), and you will see the Hello
                     World! string.
@@ -73,15 +86,17 @@ export default router;`}</code>
                     />
                 </div>
             </div>
-            <div>
-                <h2>3. Adding a nested url</h2>
-                <span>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <span className="p-react-router-installation__step">
+                    Adding a nested url
+                </span>
+                <span className="text-paragraph">
                     Each RouteObjects have the possibility to have a children
                     property. This children property is also an array of new
                     RouteObjects, creating a nested group of RouteObjects from
                     the previous one.
                 </span>
-                <span>
+                <span className="text-paragraph">
                     Inside the parent component html, its needed to create the
                     Outlet component. With this component, we will indicate
                     where the children have to appear. To use it, import from
@@ -89,7 +104,7 @@ export default router;`}</code>
                     <code>{`import { Outlet, createBrowserRouter } from "react-router-dom";
 `}</code>
                 </span>
-                <span>
+                <span className="text-paragraph">
                     <code>
                         {`[
   {
@@ -130,15 +145,17 @@ export default router;`}</code>
                     />
                 </div>
             </div>
-            <h2>4. Component redirection</h2>
-            <span>
+            <span className="p-react-router-installation__step">
+                Component redirection
+            </span>
+            <span className="text-paragraph">
                 To redirect to an specific component, the way of doing it is the
                 same.
             </span>
             <ol>
                 <li>
                     Create the component.
-                    <span>
+                    <span className="text-paragraph">
                         <code>{`const TestComponent: React.FC = () => (
   <div style={{ color: "orange" }}>
     <b>Test component example!!</b>
@@ -147,8 +164,11 @@ export default router;`}</code>
                     </span>
                 </li>
                 <li>
-                    Create new RouteObject inside the nested-1 route.
-                    <span>
+                    <span className="text-paragraph">
+                        Create new RouteObject inside the nested-1 route.
+                    </span>
+
+                    <span className="text-paragraph">
                         <code>{`{
             path: "test-component",
             element: <TestComponent />,

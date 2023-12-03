@@ -16,3 +16,9 @@ html {
 body {
     margin: 0;
 }
+
+.text-paragraph {
+    @include m-body();
+    color: $grey-7;
+    margin-bottom: 0.25rem;
+}
