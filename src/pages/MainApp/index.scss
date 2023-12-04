@@ -1,0 +1,22 @@
+@import "../../styles/main_styles.scss";
+
+.main-app {
+    &.light-mode {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.main-app {
+    position: relative;
+    background-color: linear-gradient(
+        270deg,
+        #fbfbfc 0%,
+        #eff2f4 24.27%,
+        #eff2f4 81.04%,
+        #fbfbfc 100%
+    );
+}

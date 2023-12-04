@@ -5,9 +5,10 @@ import ComponentLibrary from "@pages/ComponentLibrary";
 import App from "../../app";
 import WebUtilities from "@/pages/WebUtilities";
 import Link from "@components/Link";
-import Navbar from "@/widgets/Navbar";
 import BlogTemplate from "@pages/BlogTemplate";
 import Portfolio from "@pages/Portfolio";
+import MainApp from "@/pages/MainApp";
+import Navbar from "@widgets/Navbar";
 
 const TestComponent: React.FC = () => (
     <div style={{ color: "orange" }}>
@@ -18,7 +19,13 @@ const TestComponent: React.FC = () => (
 const Navigate: React.FC = () => {
     const navigate = useNavigate();
     return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+            }}
+        >
             <Link
                 id="portfolio-link"
                 text="Portfolio"
@@ -47,64 +54,70 @@ const Navigate: React.FC = () => {
 const router = createBrowserRouter([
     {
         path: "/",
-        element: (
-            <>
-                <Navbar id="navbar-test"></Navbar>
-                <Outlet></Outlet>
-            </>
-        ),
+        element: <MainApp id="main-app" />,
         children: [
             {
                 path: "/",
-                element: <Navigate />,
-            },
-            {
-                path: "react-router-installation",
                 element: (
-                    <BlogTemplate id="react-router-blog-template">
-                        <ReactRouterInstallation id="react-router-installation-page" />
-                    </BlogTemplate>
-                ),
-            },
-            {
-                path: "component-library",
-                element: (
-                    <BlogTemplate id="component-library-template">
-                        <ComponentLibrary id="component-library-page" />
-                    </BlogTemplate>
-                ),
-            },
-            {
-                path: "app",
-                element: <App />,
-            },
-            {
-                path: "web-utilities",
-                element: <WebUtilities id="web-utilities-page" />,
-            },
-            {
-                path: "nested-1",
-                element: (
-                    <div>
-                        First nested page!! <Outlet />
-                    </div>
+                    <>
+                        <Navbar id="navbar-test"></Navbar>
+                        <Outlet></Outlet>
+                    </>
                 ),
                 children: [
                     {
-                        path: "nested-2",
-                        element: <div>Second nested page!!</div>,
+                        path: "/",
+                        element: <Navigate />,
                     },
                     {
-                        path: "test-component",
-                        element: <TestComponent />,
+                        path: "react-router-installation",
+                        element: (
+                            <BlogTemplate id="react-router-blog-template">
+                                <ReactRouterInstallation id="react-router-installation-page" />
+                            </BlogTemplate>
+                        ),
+                    },
+                    {
+                        path: "component-library",
+                        element: (
+                            <BlogTemplate id="component-library-template">
+                                <ComponentLibrary id="component-library-page" />
+                            </BlogTemplate>
+                        ),
+                    },
+                    {
+                        path: "app",
+                        element: <App />,
+                    },
+                    {
+                        path: "web-utilities",
+                        element: <WebUtilities id="web-utilities-page" />,
+                    },
+                    {
+                        path: "nested-1",
+                        element: (
+                            <div>
+                                First nested page!! <Outlet />
+                            </div>
+                        ),
+                        children: [
+                            {
+                                path: "nested-2",
+                                element: <div>Second nested page!!</div>,
+                            },
+                            {
+                                path: "test-component",
+                                element: <TestComponent />,
+                            },
+                        ],
                     },
                 ],
             },
+            {
+                path: "portfolio",
+                element: <Portfolio id="portfolio-page" />,
+            },
         ],
-    },
-    {
-        path: "portfolio",
-        element: <Portfolio id="portfolio-page" />,
     },
 ]);
 

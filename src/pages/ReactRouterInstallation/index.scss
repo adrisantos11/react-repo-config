@@ -1,6 +1,6 @@
 @import "../../styles/main_styles.scss";
 
-.react-repo-config {
+.main-app {
     &.light-mode .c-react-router-installation {
         // Example: --btn-active-bckg-color: red;
     }
@@ -24,7 +24,6 @@
         color: $grey-6;
         text-align: center;
     }
-
 
     &__step {
         @include m-heading-3(600);

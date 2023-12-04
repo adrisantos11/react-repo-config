@@ -5,6 +5,7 @@ import Image from "@components/Image";
 import Button from "@components/Button";
 import { IconTypes } from "@/assets/icons";
 import { useNavigate } from "react-router-dom";
+import { StyleModeContext } from "@/utils/contexts";
 
 const addZero = (number: number): string => {
     const stringNumber = String(number);
@@ -42,8 +43,8 @@ export type IPortfolio = {
  */
 const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const navigate = useNavigate();
+    const { styleMode, setStyleMode } = React.useContext(StyleModeContext);
     const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
-    const [styleMode, setStyleMode] = React.useState<string>("light");
 
     React.useEffect(() => {
         setInterval(() => {
@@ -75,7 +76,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     <div className="p-portfolio__name">
                         <span className="p-portfolio__name-text">Hi 👋</span>
                         <span className="p-portfolio__name-text">
-                            I'm{" "}
                             <span className="p-portfolio__name-text p-portfolio__name-text--bold">
                                 Adrián Santos
                             </span>
@@ -106,7 +106,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
             <div
                 className="p-portfolio__dark-mode-toogle"
                 onClick={() => {
-                    console.log(styleMode);
                     if (styleMode === "light") setStyleMode("dark");
                     else if (styleMode === "dark") setStyleMode("light");
                 }}
