@@ -5,15 +5,42 @@
         // Example: --btn-active-bckg-color: red;
         --background-color: #{linear-gradient(
                 270deg,
-                #fbfbfc 0%,
-                #eff2f4 24.27%,
-                #eff2f4 81.04%,
-                #fbfbfc 100%
+                $grey-0 0%,
+                $grey-2 25%,
+                $grey-2 75%,
+                $grey-0 100%
             )};
+        --header-title-text-color: #{$grey-6};
+        --header-profile-text-color: #{$grey-6};
+        --bckg-circle-color: #{$grey-1};
+        --shadow-box-bckg-circle-color: none;
+        --bckg-shadow-color: #{rgba($grey-2, 0.4)};
+        --date-text-color: #{$grey-6};
+        --hour-text-color: #{$grey-6};
+        --slogan-text-color: #{$grey-6};
+        --social-icon--text-color: #{$grey-5};
+        --social-icon-hover-text-color: #{$grey-6};
     }
 
     &.dark-mode .p-portfolio {
-        --background-color: #{$grey-6};
+        --background-color: #{linear-gradient(
+                270deg,
+                $grey-6 0%,
+                $grey-5 25%,
+                $grey-5 75%,
+                $grey-6 100%
+            )};
+        --header-title-text-color: #{$grey-0};
+        --header-profile-text-color: #{$grey-0};
+        --bckg-circle-color: #{$grey-4};
+        --shadow-box-bckg-circle-color: #{0px 0px 12px 1px rgba(0, 0, 0, 0.7)
+            inset};
+        --bckg-shadow-color: #{rgba($grey-5, 0.4)};
+        --date-text-color: #{$grey-0};
+        --hour-text-color: #{$grey-0};
+        --slogan-text-color: #{$grey-0};
+        --social-icon--text-color: #{$grey-2};
+        --social-icon-hover-text-color: #{$grey-0};
     }
 }
 
@@ -52,11 +79,17 @@
 
     &__name-text {
         @include m-heading-2();
-        color: $grey-6;
+        color: var(--header-title-text-color);
         z-index: 3;
         &--bold {
             font-weight: 600;
         }
+    }
+
+    &__profile {
+        @include m-heading-4();
+        color: var(--header-profile-text-color);
+        z-index: 3;
     }
 
     &__clock {
@@ -75,7 +108,7 @@
 
         span {
             @include m-heading-3(500);
-            color: $grey-6;
+            color: var(--date-text-color);
         }
     }
 
@@ -86,20 +119,14 @@
 
         span {
             @include m-body(400);
-            color: $grey-6;
+            color: var(--hour-text-color);
         }
-    }
-
-    &__profile {
-        @include m-heading-4();
-        color: $grey-6;
-        z-index: 3;
     }
 
     &__center-content {
         position: absolute;
         min-width: 40rem;
-        width: 40%;
+        width: 35%;
         aspect-ratio: 1;
         bottom: 0;
         right: 0;
@@ -119,9 +146,10 @@
         width: 100%; /* 50% del valor mínimo entre el ancho y el alto de la ventana */
         aspect-ratio: 1; /* Relación de aspecto 1:1 para un círculo */
 
-        background-color: $grey-0;
+        background-color: var(--bckg-circle-color);
         border-radius: 50%;
         z-index: 0;
+        box-shadow: var(--shadow-box-bckg-circle-color);
     }
     &__slogan {
         position: absolute;
@@ -136,9 +164,10 @@
         gap: 1rem;
         z-index: 3;
     }
+
     &__slogan-text {
         @include m-heading-2(400);
-        color: $grey-6;
+        color: var(--slogan-text-color);
         &--bold {
             @include m-heading-1();
             font-weight: 700;
@@ -149,13 +178,12 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 24%;
         left: 0;
         margin: auto;
-        width: 25%;
-        background: rgba(239, 242, 244, 0.5);
+        width: 50%;
+        background: var(--bckg-shadow-color);
         box-shadow: 8px 0px 16px -8px rgba(0, 0, 0, 0.25);
-        z-index: 2;
+        z-index: 1;
     }
 
     &__social {
@@ -169,13 +197,17 @@
         cursor: pointer;
         transition: all 0.5s ease;
         font-size: 1.25rem !important;
+        z-index: 2;
 
         &::before {
-            color: $grey-6 !important;
+            color: var(--social-icon--text-color) !important;
         }
 
         &:hover {
             font-size: 1.75rem !important;
+            &::before {
+                color: var(--social-icon-hover-text-color) !important;
+            }
         }
 
         &--linked-in {
@@ -232,7 +264,7 @@
         right: 2rem;
         height: 20%;
         width: fit-content;
-        z-index: 1;
+        z-index: 0;
     }
 
     #portfolio-self-img {
@@ -241,7 +273,7 @@
         right: 0;
         left: 0;
         margin: 0 auto;
-        width: 85%;
-        z-index: 1;
+        width: 90%;
+        z-index: 0;
     }
 }

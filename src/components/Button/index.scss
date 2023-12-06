@@ -4,11 +4,21 @@
     &.light-mode .c-button {
         --btn-border-color: #{$grey-6};
         --btn-bckg-color: #{$grey-6};
+        --btn-text-color: #{$grey-6};
+        --btn-text-active-color: #{$grey-0};
+        --btn-text-hover-color: #{$grey-0};
+        --btn-border-disabled-color: #{$grey-3};
+        --btn-text-disabled-color: #{$grey-3};
     }
 
     &.dark-mode .c-button {
-        --btn-border-color: red;
-        --btn-bckg-color: red;
+        --btn-border-color: #{$grey-0};
+        --btn-bckg-color: #{$grey-0};
+        --btn-text-color: #{$grey-0};
+        --btn-text-active-color: #{$grey-6};
+        --btn-text-hover-color: #{$grey-6};
+        --btn-border-disabled-color: #{$grey-5};
+        --btn-text-disabled-color: #{$grey-5};
     }
 }
 
@@ -22,7 +32,7 @@
     outline: none;
     border-radius: 0.125rem;
     padding: 0.25rem 2rem;
-    color: $grey-6;
+    color: var(--btn-text-color);
     white-space: nowrap;
     overflow: hidden;
     transition: color 0.8s, transform 0.2s, background-color 0.8s;
@@ -32,7 +42,7 @@
     &:active {
         transform: translateY(0.125rem);
         background-color: var(--btn-bckg-color);
-        color: $grey-0;
+        color: var(--btn-text-active-color);
 
         &:disabled {
             transform: none;
@@ -40,7 +50,7 @@
     }
 
     &:hover {
-        color: $white;
+        color: var(--btn-text-hover-color);
         cursor: pointer;
         box-shadow: 0px 0px 0.25 0.125rem rgba(53, 67, 79, 0.2);
     }
@@ -66,8 +76,8 @@
 
     &:disabled {
         background-color: transparent;
-        color: $grey-3;
-        border-color: $grey-3;
+        color: var(--btn-text-disabled-color);
+        border-color: var(--btn-border-disabled-color);
         transition: none;
 
         &:hover {
