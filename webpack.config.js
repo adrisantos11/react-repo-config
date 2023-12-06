@@ -6,9 +6,10 @@ module.exports = {
     entry: "./main.tsx",
     devtool: "inline-source-map",
     output: {
-        path: path.join(__dirname, "/dist"),
+        path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
         publicPath: "/",
+        clean: true,
     },
     devtool: "inline-source-map",
     devServer: {
@@ -59,7 +60,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./index.html",
+            template: path.resolve(__dirname, "index.html"),
+            favicon: path.resolve(__dirname, ""),
         }),
     ],
 };
