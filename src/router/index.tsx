@@ -57,7 +57,11 @@ export const routerObject = () => {
         [
             {
                 path: "/",
-                element: <MainApp id="main-app" />,
+                element: (
+                    <React.Suspense>
+                        <MainApp id="main-app" />
+                    </React.Suspense>
+                ),
                 children: [
                     {
                         path: "/",
@@ -122,7 +126,11 @@ export const routerObject = () => {
                     },
                     {
                         path: "portfolio",
-                        element: <Portfolio id="portfolio-page" />,
+                        element: (
+                            <React.Suspense>
+                                <Portfolio id="portfolio-page" />{" "}
+                            </React.Suspense>
+                        ),
                     },
                 ],
             },
