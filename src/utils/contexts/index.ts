@@ -1,1 +1,1 @@
-export {StyleModeContext, IStyleModeContext} from './StyleModeContext'
+export { StyleModeContext, IStyleModeContext } from './StyleModeContext'

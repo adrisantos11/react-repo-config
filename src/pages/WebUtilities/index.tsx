@@ -54,7 +54,7 @@ const WebUtilities: React.FC<IWebUtilities> = (props: IWebUtilities) => {
             <Link
                 id="home-link"
                 text="Back Home page"
-                icon={IconTypes["circle-left"]}
+                icon={IconTypes["arrow-left"]}
                 onClick={() => navigate("/")}
             ></Link>
         </div>

@@ -22,9 +22,7 @@ const Link: React.FC<ILink> = (props: ILink) => {
         >
             <div className="c-link__body">
                 <span
-                    className={`c-link__icon icon-${
-                        IconTypes[props.icon || "link"]
-                    }`}
+                    className={`c-link__icon icon-${IconTypes["web-logo"]}`}
                 ></span>
                 <span className="c-link__text">{props.text}</span>
             </div>
