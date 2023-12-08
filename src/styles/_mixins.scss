@@ -10,7 +10,7 @@
     letter-spacing: 0.25rem;
 }
 
-@mixin m-heading-2($font-width: 500) {
+@mixin m-heading-2($font-width: 400) {
     @extend %ph-text-select;
     font-family: "Assistant", sans-serif;
     font-size: 2.25rem;
@@ -20,7 +20,7 @@
     letter-spacing: 0.25rem;
 }
 
-@mixin m-heading-3($font-width: 500) {
+@mixin m-heading-3($font-width: 400) {
     @extend %ph-text-select;
     font-family: "Assistant", sans-serif;
     font-size: 1.5rem;
