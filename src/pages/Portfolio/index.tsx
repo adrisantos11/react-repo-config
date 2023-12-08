@@ -166,10 +166,10 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     }
                 ></span>
                 <span
-                    className={`icon-${IconTypes["instagram"]} p-portfolio__social-icon p-portfolio__social-icon--insta`}
+                    className={`icon-${IconTypes["github"]} p-portfolio__social-icon p-portfolio__social-icon--insta`}
                     onClick={() =>
                         window.open(
-                            "https://www.instagram.com/adrisantos_11/",
+                            "https://github.com/adrisantos11?tab=repositories",
                             "_blank"
                         )
                     }
