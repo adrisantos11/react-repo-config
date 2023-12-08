@@ -35,8 +35,8 @@
         --background-color: #{linear-gradient(
                 270deg,
                 $grey-6 0%,
-                $grey-5 25%,
-                $grey-5 75%,
+                #4b5661 25%,
+                #4b5661 75%,
                 $grey-6 100%
             )};
         --web-logo-color: #{$grey-0};
@@ -47,9 +47,9 @@
             inset};
         --bckg-shadow-color: #{linear-gradient(
                 270deg,
-                rgba($grey-5, 0.4) 0%,
-                rgba($grey-5, 0.4) 25%,
-                rgba($grey-5, 0.4) 50%,
+                rgba(#4b5661, 0.4) 0%,
+                rgba(#4b5661, 0.4) 25%,
+                rgba(#4b5661, 0.4) 50%,
                 rgba($grey-6, 0.4) 100%
             )};
         --date-text-color: #{$grey-0};
