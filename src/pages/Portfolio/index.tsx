@@ -7,6 +7,7 @@ import { IconTypes, getIconNames } from "@/assets/icons";
 import { useNavigate } from "react-router-dom";
 import { StyleModeContext } from "@/utils/contexts";
 import useScreenSize from "@/utils/custom_hooks/useScreenSize";
+import { IUrl, useFetch } from "@/utils/custom_hooks";
 
 const addZero = (number: number): string => {
     const stringNumber = String(number);
@@ -47,6 +48,8 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const { styleMode, setStyleMode } = React.useContext(StyleModeContext);
     const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
     const { size } = useScreenSize();
+    const [url, setUrl] = React.useState<IUrl>(null);
+    const { data } = useFetch(url, "test", false);
 
     React.useEffect(() => {
         setInterval(() => {
@@ -61,6 +64,20 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
             });
         }, 1000);
     });
+
+    React.useEffect(() => {
+        setUrl({
+            url: "https://sm-api-adrisantos11.vercel.app/",
+            method: "GET",
+        });
+    }, []);
+
+    React.useEffect(() => {
+        if (data && data.id === "test") {
+            const { data: endpointData } = data;
+            console.log(endpointData);
+        }
+    }, [data]);
 
     React.useEffect(() => {
         console.log(size);

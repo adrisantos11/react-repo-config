@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
 
-interface IScreenSize {
+export interface IScreenSize {
     width: number;
     height: number;
 }
 
-const useScreenSize = () => {
+export const useScreenSize = () => {
     const [size, setSize] = useState<IScreenSize>({
         width: window.innerWidth,
         height: window.innerHeight
