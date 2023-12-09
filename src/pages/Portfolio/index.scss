@@ -312,7 +312,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 4rem 3rem;
+        padding: 6rem 3rem;
 
         &__header {
             align-items: center;
@@ -361,7 +361,7 @@
         &__bulb {
             top: 0;
             right: 0;
-            bottom: 6rem;
+            bottom: 10rem;
             left: 16rem;
             margin: auto;
         }
@@ -377,7 +377,7 @@
         }
 
         &__social-container {
-            bottom: 4rem;
+            bottom: 6rem;
             right: 0;
             left: 0;
             margin: 0 auto;
@@ -402,7 +402,7 @@
 
         #download-cv-mobile {
             position: absolute;
-            bottom: 7rem;
+            bottom: 9rem;
             left: 0;
             right: 0;
             margin: 0 auto;
