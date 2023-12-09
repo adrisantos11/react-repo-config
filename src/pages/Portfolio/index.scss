@@ -333,10 +333,6 @@
 
         &__name-text {
             text-align: center;
-
-            &--bold {
-                font-weight: 500;
-            }
         }
 
         &__clock {
@@ -372,12 +368,6 @@
 
         &__bckg-circle {
             display: none;
-        }
-
-        &__slogan-text {
-            &--bold {
-                font-weight: 600;
-            }
         }
 
         &__background-shadow {
