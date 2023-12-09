@@ -66,6 +66,13 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
         }, 1000);
     });
 
+    const downloadCV = () =>
+        fetchDownloadAPI(
+            // "http://localhost:3000/get-cv",
+            "https://sm-api-adrisantos11.vercel.app/get-cv",
+            "Adrián_Santos_2023"
+        );
+
     React.useEffect(() => {
         setUrl({
             url: "https://sm-api-adrisantos11.vercel.app/",
@@ -109,16 +116,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     </span>
                 </div>
                 {size.width >= 991 ? (
-                    <Button
-                        id="download-cv"
-                        onClick={() =>
-                            fetchDownloadAPI(
-                                // "http://localhost:3000/get-cv",
-                                "https://sm-api-adrisantos11.vercel.app/get-cv",
-                                "Adrián_Santos_2023"
-                            )
-                        }
-                    >
+                    <Button id="download-cv" onClick={downloadCV}>
                         Download CV
                     </Button>
                 ) : (
@@ -180,7 +178,9 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                 ></Image>
             </div>
             {size.width < 991 ? (
-                <Button id="download-cv-mobile">Download CV</Button>
+                <Button id="download-cv-mobile" onClick={downloadCV}>
+                    Download CV
+                </Button>
             ) : (
                 ""
             )}
