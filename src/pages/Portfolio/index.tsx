@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { StyleModeContext } from "@/utils/contexts";
 import useScreenSize from "@/utils/custom_hooks/useScreenSize";
 import { IUrl, useFetch } from "@/utils/custom_hooks";
+import { fetchDownloadAPI } from "@/utils/custom_hooks/useFetchDownload";
 
 const addZero = (number: number): string => {
     const stringNumber = String(number);
@@ -108,7 +109,18 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     </span>
                 </div>
                 {size.width >= 991 ? (
-                    <Button id="download-cv">Download CV</Button>
+                    <Button
+                        id="download-cv"
+                        onClick={() =>
+                            fetchDownloadAPI(
+                                // "http://localhost:3000/get-cv",
+                                "https://sm-api-adrisantos11.vercel.app/get-cv",
+                                "Adrián_Santos_2023"
+                            )
+                        }
+                    >
+                        Download CV
+                    </Button>
                 ) : (
                     ""
                 )}
