@@ -56,6 +56,7 @@ module.exports = {
             "@fonts": path.resolve(__dirname, "src/assets/fonts"),
             "@styles": path.resolve(__dirname, "src/styles"),
             "@utils": path.resolve(__dirname, "src/utils"),
+            "@assets": path.resolve(__dirname, "src/assets"),
         },
     },
     plugins: [

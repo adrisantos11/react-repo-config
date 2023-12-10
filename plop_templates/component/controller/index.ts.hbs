@@ -1,0 +1,19 @@
+import { I{{ name }}, IReducer } from '../model'
+
+export const {{ toSnakeCase name true }}_INITIAL_STATE: I{{ name }} = {
+    id: ''
+}
+
+export const REDUCER_INITIAL_STATE: IReducer = {
+    // Properties here
+}
+
+export const reducer = (state: IReducer, action: any): IReducer => {
+    const { type } = action;
+
+    if (type === '') {
+        return {
+            ...state
+        }
+    }
+}

@@ -48,6 +48,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const navigate = useNavigate();
     const { styleMode, setStyleMode } = React.useContext(StyleModeContext);
     const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
+    const [menu, setMenu] = React.useState<string>("home");
     const { size } = useScreenSize();
     const [url, setUrl] = React.useState<IUrl>(null);
     const { data } = useFetch(url, "test", false);
@@ -212,6 +213,46 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                         )
                     }
                 ></span>
+            </div>
+            <div className="p-portfolio__menu">
+                <span
+                    className={`p-portfolio__menu-item ${
+                        menu === "home" ? "p-portfolio__menu-item--active" : ""
+                    }`}
+                    onClick={() => setMenu("home")}
+                >
+                    HOME
+                </span>
+                <span
+                    className={`p-portfolio__menu-item ${
+                        menu === "about-me"
+                            ? "p-portfolio__menu-item--active"
+                            : ""
+                    }`}
+                    onClick={() => setMenu("about-me")}
+                >
+                    ABOUT ME
+                </span>
+                <span
+                    className={`p-portfolio__menu-item ${
+                        menu === "experience"
+                            ? "p-portfolio__menu-item--active"
+                            : ""
+                    }`}
+                    onClick={() => setMenu("experience")}
+                >
+                    EXPERIENCE
+                </span>
+                <span
+                    className={`p-portfolio__menu-item ${
+                        menu === "personal-projects"
+                            ? "p-portfolio__menu-item--active"
+                            : ""
+                    } p-portfolio__menu-item--disabled`}
+                    // onClick={() => setMenu("personal-projects")}
+                >
+                    PERSONAL PROJECTS
+                </span>
             </div>
         </div>
     );

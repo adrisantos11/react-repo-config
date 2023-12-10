@@ -1,0 +1,15 @@
+import * as React from "react";
+import "./index.scss";
+import { reducer, REDUCER_INITIAL_STATE } from '../controller';
+import { I{{name}} } from '../model';
+
+/**
+ * {{description}}
+ * @param props {{name}} properties
+ * @returns {{name}} component
+ */
+export const {{name}}: React.FC<I{{name}}> = (props: I{{name}}) => {
+	const [state, dispach] = React.useReducer(reducer, REDUCER_INITIAL_STATE);
+	
+	return <div className="c-{{toKebabCase name}}">{{name}}</div>;
+};

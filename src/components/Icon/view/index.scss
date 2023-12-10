@@ -1,0 +1,15 @@
+@import "../../../styles/main_styles.scss";
+
+.react-repo-config {
+    &.light-mode .c-icon {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-icon {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.c-icon {
+    position: relative;
+}

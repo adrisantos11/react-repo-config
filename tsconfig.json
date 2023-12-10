@@ -21,7 +21,8 @@
             "@images/*": ["assets/images/*"],
             "@fonts/*": ["assets/fonts/*"],
             "@styles/*": ["styles/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@assets/*": ["assets/*"]
         }
     }
 }

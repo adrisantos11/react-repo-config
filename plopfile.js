@@ -33,6 +33,12 @@ module.exports = function (plop) {
                 type: "addMany",
                 destination: "src/{{toSnakeCase type}}s/{{name}}",
                 base: "plop_templates/{{toLowerCase type}}",
+                templateFiles: "plop_templates/{{toLowerCase type}}/*/*",
+            });
+            actions.push({
+                type: "addMany",
+                destination: "src/{{toSnakeCase type}}s/{{name}}",
+                base: "plop_templates/{{toLowerCase type}}",
                 templateFiles: "plop_templates/{{toLowerCase type}}/*",
             });
 
@@ -56,13 +62,13 @@ module.exports = function (plop) {
     });
 
     // PascalCase to SnakeCase => ThisIsAnExample: this_is_an_example
-    plop.setHelper("toSnakeCase", function (text) {
+    plop.setHelper("toSnakeCase", function (text, upperCase) {
         let newText = "";
         [...text].forEach((letter, index) => {
             if (letter === letter.toUpperCase() && index !== 0)
                 newText += `_${letter.toLowerCase()}`;
             else newText += letter.toLowerCase();
         });
-        return newText;
+        return upperCase ? newText.toUpperCase() : newText;
     });
 };
