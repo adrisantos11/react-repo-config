@@ -1,0 +1,49 @@
+@import "../../../styles/main_styles.scss";
+
+.react-repo-config {
+    &.light-mode .c-menu {
+        --menu-text-color: #{$grey-6};
+        --menu-disabled-text-color: #{$grey-3};
+    }
+
+    &.dark-mode .c-menu {
+        --menu-text-color: #{$grey-0};
+        --menu-disabled-text-color: #{$grey-5};
+    }
+}
+
+.c-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+
+    &__item {
+        @include m-body();
+        position: relative;
+        color: var(--menu-text-color);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-right: 1rem;
+
+        &--active {
+            font-weight: 700;
+        }
+
+        &--disabled {
+            color: var(--menu-disabled-text-color);
+            cursor: auto;
+        }
+    }
+
+    &__side-bar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0.25rem;
+        height: 1.25rem;
+        background-color: $grey-6;
+        transition: all 0.5s ease;
+    }
+}

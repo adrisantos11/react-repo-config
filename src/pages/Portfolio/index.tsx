@@ -9,6 +9,7 @@ import { StyleModeContext } from "@/utils/contexts";
 import useScreenSize from "@/utils/custom_hooks/useScreenSize";
 import { IUrl, useFetch } from "@/utils/custom_hooks";
 import { fetchDownloadAPI } from "@/utils/custom_hooks/useFetchDownload";
+import Menu from "@/components/Menu";
 
 const addZero = (number: number): string => {
     const stringNumber = String(number);
@@ -48,10 +49,16 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const navigate = useNavigate();
     const { styleMode, setStyleMode } = React.useContext(StyleModeContext);
     const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
-    const [menu, setMenu] = React.useState<string>("home");
+    const [menu, setMenu] = React.useState<number>(1);
     const { size } = useScreenSize();
     const [url, setUrl] = React.useState<IUrl>(null);
     const { data } = useFetch(url, "test", false);
+    const menuRef = React.useRef(null);
+    const menuElemRef = React.useRef(null);
+    const [menuElementSize, setMenuElementSize] = React.useState<any>({
+        menu: 0,
+        element: 0,
+    });
 
     React.useEffect(() => {
         setInterval(() => {
@@ -79,6 +86,10 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
             url: "https://sm-api-adrisantos11.vercel.app/",
             method: "GET",
         });
+        setMenuElementSize({
+            menu: menuRef.current.offsetHeight,
+            element: menuElemRef.current.offsetHeight,
+        });
     }, []);
 
     React.useEffect(() => {
@@ -92,6 +103,10 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
         console.log(size);
         console.log(getIconNames());
     }, [size]);
+
+    React.useEffect(() => {
+        console.log(menuElementSize);
+    }, [menuElementSize]);
 
     return (
         <div className="p-portfolio">
@@ -170,7 +185,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                 </div>
                 <span
                     className={`icon-${IconTypes["bulb-light"]} p-portfolio__bulb`}
-                    onClick={() => navigate("/")}
                 />
                 <Image
                     id="portfolio-self-img"
@@ -214,46 +228,65 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     }
                 ></span>
             </div>
-            <div className="p-portfolio__menu">
+            <div className="p-portfolio__menu" ref={menuRef}>
                 <span
                     className={`p-portfolio__menu-item ${
-                        menu === "home" ? "p-portfolio__menu-item--active" : ""
+                        menu === 1 ? "p-portfolio__menu-item--active" : ""
                     }`}
-                    onClick={() => setMenu("home")}
+                    onClick={() => setMenu(1)}
+                    ref={menuElemRef}
                 >
                     HOME
                 </span>
                 <span
                     className={`p-portfolio__menu-item ${
-                        menu === "about-me"
-                            ? "p-portfolio__menu-item--active"
-                            : ""
+                        menu === 2 ? "p-portfolio__menu-item--active" : ""
                     }`}
-                    onClick={() => setMenu("about-me")}
+                    onClick={() => setMenu(2)}
                 >
                     ABOUT ME
                 </span>
                 <span
                     className={`p-portfolio__menu-item ${
-                        menu === "experience"
-                            ? "p-portfolio__menu-item--active"
-                            : ""
+                        menu === 3 ? "p-portfolio__menu-item--active" : ""
                     }`}
-                    onClick={() => setMenu("experience")}
+                    onClick={() => setMenu(3)}
                 >
                     EXPERIENCE
                 </span>
                 <span
                     className={`p-portfolio__menu-item ${
-                        menu === "personal-projects"
-                            ? "p-portfolio__menu-item--active"
-                            : ""
+                        menu === 4 ? "p-portfolio__menu-item--active" : ""
                     } p-portfolio__menu-item--disabled`}
-                    // onClick={() => setMenu("personal-projects")}
+                    // onClick={() => setMenu(4)}
                 >
                     PERSONAL PROJECTS
                 </span>
+                <span
+                    className="p-portfolio__menu-bar"
+                    style={{
+                        top: `${(100 / 4) * (menu - 1)}%`,
+                        height: menuElementSize.element,
+                    }}
+                ></span>
             </div>
+            <Menu
+                id="portfolio-menu"
+                items={[
+                    { id: "home-item", text: "HOME" },
+                    { id: "about-me-item", text: "ABOUT ME" },
+                    { id: "experience-item", text: "EXPERIENCE" },
+
+                    { id: "experience-item1", text: "EXPERIENCE" },
+                    { id: "experience-item2", text: "EXPERIENCE" },
+                    { id: "experience-item3", text: "EXPERIENCE" },
+                    {
+                        id: "personal-projects-item",
+                        text: "PERSONAL PROJECTS",
+                        disabled: true,
+                    },
+                ]}
+            ></Menu>
         </div>
     );
 };
