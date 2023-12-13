@@ -12,6 +12,14 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
     const [state, dispach] = React.useReducer(reducer, REDUCER_INITIAL_STATE);
     const menuElemRef = React.useRef(null);
 
+    const onClick = (item: IMenuItem) => {
+        props.onClick && props.onClick(item.id, item.text);
+        dispach({
+            type: "update_selected",
+            itemSelected: item.id,
+        });
+    };
+
     React.useEffect(() => {
         props.items.length &&
             dispach({
@@ -40,14 +48,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
                                     : ""
                             } ${item.disabled ? "c-menu__item--disabled" : ""}`}
                             {...(!item.disabled && {
-                                onClick: () => {
-                                    props.onClick &&
-                                        props.onClick(item.id, item.text);
-                                    dispach({
-                                        type: "update_selected",
-                                        itemSelected: item.id,
-                                    });
-                                },
+                                onClick: () => onClick(item),
                             })}
                             {...(index === 0 && { ref: menuElemRef })}
                         >

@@ -49,16 +49,9 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const navigate = useNavigate();
     const { styleMode, setStyleMode } = React.useContext(StyleModeContext);
     const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
-    const [menu, setMenu] = React.useState<number>(1);
     const { size } = useScreenSize();
     const [url, setUrl] = React.useState<IUrl>(null);
     const { data } = useFetch(url, "test", false);
-    const menuRef = React.useRef(null);
-    const menuElemRef = React.useRef(null);
-    const [menuElementSize, setMenuElementSize] = React.useState<any>({
-        menu: 0,
-        element: 0,
-    });
 
     React.useEffect(() => {
         setInterval(() => {
@@ -86,10 +79,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
             url: "https://sm-api-adrisantos11.vercel.app/",
             method: "GET",
         });
-        setMenuElementSize({
-            menu: menuRef.current.offsetHeight,
-            element: menuElemRef.current.offsetHeight,
-        });
     }, []);
 
     React.useEffect(() => {
@@ -98,15 +87,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
             console.log(endpointData);
         }
     }, [data]);
-
-    React.useEffect(() => {
-        console.log(size);
-        console.log(getIconNames());
-    }, [size]);
-
-    React.useEffect(() => {
-        console.log(menuElementSize);
-    }, [menuElementSize]);
 
     return (
         <div className="p-portfolio">
@@ -228,65 +208,23 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     }
                 ></span>
             </div>
-            <div className="p-portfolio__menu" ref={menuRef}>
-                <span
-                    className={`p-portfolio__menu-item ${
-                        menu === 1 ? "p-portfolio__menu-item--active" : ""
-                    }`}
-                    onClick={() => setMenu(1)}
-                    ref={menuElemRef}
-                >
-                    HOME
-                </span>
-                <span
-                    className={`p-portfolio__menu-item ${
-                        menu === 2 ? "p-portfolio__menu-item--active" : ""
-                    }`}
-                    onClick={() => setMenu(2)}
-                >
-                    ABOUT ME
-                </span>
-                <span
-                    className={`p-portfolio__menu-item ${
-                        menu === 3 ? "p-portfolio__menu-item--active" : ""
-                    }`}
-                    onClick={() => setMenu(3)}
-                >
-                    EXPERIENCE
-                </span>
-                <span
-                    className={`p-portfolio__menu-item ${
-                        menu === 4 ? "p-portfolio__menu-item--active" : ""
-                    } p-portfolio__menu-item--disabled`}
-                    // onClick={() => setMenu(4)}
-                >
-                    PERSONAL PROJECTS
-                </span>
-                <span
-                    className="p-portfolio__menu-bar"
-                    style={{
-                        top: `${(100 / 4) * (menu - 1)}%`,
-                        height: menuElementSize.element,
-                    }}
-                ></span>
-            </div>
-            <Menu
-                id="portfolio-menu"
-                items={[
-                    { id: "home-item", text: "HOME" },
-                    { id: "about-me-item", text: "ABOUT ME" },
-                    { id: "experience-item", text: "EXPERIENCE" },
 
-                    { id: "experience-item1", text: "EXPERIENCE" },
-                    { id: "experience-item2", text: "EXPERIENCE" },
-                    { id: "experience-item3", text: "EXPERIENCE" },
-                    {
-                        id: "personal-projects-item",
-                        text: "PERSONAL PROJECTS",
-                        disabled: true,
-                    },
-                ]}
-            ></Menu>
+            <div className="p-portfolio__menu">
+                <Menu
+                    id="portfolio-menu"
+                    items={[
+                        { id: "home-item", text: "HOME" },
+                        { id: "about-me-item", text: "ABOUT ME" },
+                        { id: "experience-item", text: "EXPERIENCE" },
+
+                        {
+                            id: "personal-projects-item",
+                            text: "PERSONAL PROJECTS",
+                            disabled: true,
+                        },
+                    ]}
+                ></Menu>
+            </div>
         </div>
     );
 };
