@@ -1,6 +1,18 @@
+.main-app {
+    &.light-mode {
+        --text-selection-color: #{$grey-0};
+        --background-selection-color: #{$grey-6};
+    }
+
+    &.dark-mode {
+        --text-selection-color: #{$grey-6};
+        --background-selection-color: #{$grey-0};
+    }
+}
+
 %ph-text-select {
     &::selection {
-        color: $grey-0;
-        background-color: $grey-6;
+        color: var(--text-selection-color);
+        background-color: var(--background-selection-color);
     }
 }

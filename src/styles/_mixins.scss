@@ -1,4 +1,5 @@
 @import "./placeholders";
+@import "./color_palette";
 
 @mixin m-heading-1($font-width: 700) {
     @extend %ph-text-select;

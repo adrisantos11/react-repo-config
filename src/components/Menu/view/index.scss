@@ -1,14 +1,16 @@
 @import "../../../styles/main_styles.scss";
 
-.react-repo-config {
+.main-app {
     &.light-mode .c-menu {
         --menu-text-color: #{$grey-6};
         --menu-disabled-text-color: #{$grey-3};
+        --menu-side-bar-color: #{$grey-6};
     }
 
     &.dark-mode .c-menu {
         --menu-text-color: #{$grey-0};
         --menu-disabled-text-color: #{$grey-5};
+        --menu-side-bar-color: #{$grey-0};
     }
 }
 
@@ -39,11 +41,9 @@
 
     &__side-bar {
         position: absolute;
-        top: 0;
         right: 0;
         width: 0.25rem;
-        height: 1.25rem;
-        background-color: $grey-6;
+        background-color: var(--menu-side-bar-color);
         transition: all 0.5s ease;
     }
 }
