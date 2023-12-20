@@ -90,124 +90,129 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 
     return (
         <div className="p-portfolio">
-            <div className="p-portfolio__background-shadow"></div>
-            <div className="p-portfolio__header">
-                <span
-                    className={`icon-${IconTypes["web-logo"]} p-portfolio__web-logo`}
-                    onClick={() => navigate("/")}
-                />
+            <div className="p-portfolio__presentation">
+                <div className="p-portfolio__background-shadow"></div>
+                <div className="p-portfolio__header">
+                    <span
+                        className={`icon-${IconTypes["web-logo"]} p-portfolio__web-logo`}
+                        onClick={() => navigate("/")}
+                    />
 
-                <div className="p-portfolio__header-description">
-                    <div className="p-portfolio__name">
-                        <span className="p-portfolio__name-text">Hi 👋</span>
-                        <span className="p-portfolio__name-text">
-                            I'm{" "}
-                            <span className="p-portfolio__name-text p-portfolio__name-text--bold">
-                                Adrián Santos
+                    <div className="p-portfolio__header-description">
+                        <div className="p-portfolio__name">
+                            <span className="p-portfolio__name-text">
+                                Hi 👋
                             </span>
+                            <span className="p-portfolio__name-text">
+                                I'm{" "}
+                                <span className="p-portfolio__name-text p-portfolio__name-text--bold">
+                                    Adrián Santos
+                                </span>
+                            </span>
+                        </div>
+                        <span className="p-portfolio__profile">
+                            Software Engineer | Full-stack dev
                         </span>
                     </div>
-                    <span className="p-portfolio__profile">
-                        Software Engineer | Full-stack dev
-                    </span>
+                    {size.width >= 991 ? (
+                        <Button id="download-cv" onClick={downloadCV}>
+                            Download CV
+                        </Button>
+                    ) : (
+                        ""
+                    )}
                 </div>
-                {size.width >= 991 ? (
-                    <Button id="download-cv" onClick={downloadCV}>
+                <div className="p-portfolio__clock">
+                    <div className="p-portfolio__date">
+                        <span>{date.day}</span>
+                        <span>/</span>
+                        <span>{date.month}</span>
+                        <span>/</span>
+                        <span>{date.year}</span>
+                    </div>
+                    <div className="p-portfolio__hour">
+                        <span>{date.hours}</span>
+                        <span>:</span>
+                        <span>{date.minutes}</span>
+                        <span>:</span>
+                        <span>{date.seconds}</span>
+                    </div>
+                </div>
+                <div
+                    className="p-portfolio__style-mode-toogle"
+                    onClick={() => {
+                        if (styleMode === "light") setStyleMode("dark");
+                        else if (styleMode === "dark") setStyleMode("light");
+                    }}
+                >
+                    <span
+                        id="dark-mode-icon"
+                        className={`icon-${
+                            styleMode === "light"
+                                ? IconTypes["moon"]
+                                : IconTypes["sun1"]
+                        } p-portfolio__style-mode-button`}
+                    />
+                </div>
+                <div className="p-portfolio__center-content">
+                    <div className="p-portfolio__bckg-circle"></div>
+                    <div className="p-portfolio__slogan">
+                        <span className="p-portfolio__slogan-text">THINK</span>
+                        <span className="p-portfolio__slogan-text p-portfolio__slogan-text--bold">
+                            RIGHT,
+                        </span>
+                        <span className="p-portfolio__slogan-text">DO IT</span>
+                        <span className="p-portfolio__slogan-text p-portfolio__slogan-text--bold">
+                            BETTER
+                        </span>
+                    </div>
+                    <span
+                        className={`icon-${IconTypes["bulb-light"]} p-portfolio__bulb`}
+                    />
+                    <Image
+                        id="portfolio-self-img"
+                        image={imagesObj["portfolio-self-img"]}
+                        height={4}
+                    ></Image>
+                </div>
+                {size.width < 991 ? (
+                    <Button id="download-cv-mobile" onClick={downloadCV}>
                         Download CV
                     </Button>
                 ) : (
                     ""
                 )}
-            </div>
-            <div className="p-portfolio__clock">
-                <div className="p-portfolio__date">
-                    <span>{date.day}</span>
-                    <span>/</span>
-                    <span>{date.month}</span>
-                    <span>/</span>
-                    <span>{date.year}</span>
+                <div className="p-portfolio__social-container">
+                    <span
+                        className={`icon-${IconTypes["linkedin"]} p-portfolio__social-icon p-portfolio__social-icon--linked-in`}
+                        onClick={() =>
+                            window.open(
+                                "https://www.linkedin.com/in/adrian-santos-mena-66578712a",
+                                "_blank"
+                            )
+                        }
+                    ></span>
+                    <span
+                        className={`icon-${IconTypes["github"]} p-portfolio__social-icon p-portfolio__social-icon--insta`}
+                        onClick={() =>
+                            window.open(
+                                "https://github.com/adrisantos11?tab=repositories",
+                                "_blank"
+                            )
+                        }
+                    ></span>
+                    <span
+                        className={`icon-${IconTypes["pinterest"]} p-portfolio__social-icon p-portfolio__social-icon--pinterest`}
+                        onClick={() =>
+                            window.open(
+                                "https://www.pinterest.es/adrisantos11/",
+                                "_blank"
+                            )
+                        }
+                    ></span>
                 </div>
-                <div className="p-portfolio__hour">
-                    <span>{date.hours}</span>
-                    <span>:</span>
-                    <span>{date.minutes}</span>
-                    <span>:</span>
-                    <span>{date.seconds}</span>
-                </div>
             </div>
-            <div
-                className="p-portfolio__style-mode-toogle"
-                onClick={() => {
-                    if (styleMode === "light") setStyleMode("dark");
-                    else if (styleMode === "dark") setStyleMode("light");
-                }}
-            >
-                <span
-                    id="dark-mode-icon"
-                    className={`icon-${
-                        styleMode === "light"
-                            ? IconTypes["moon"]
-                            : IconTypes["sun1"]
-                    } p-portfolio__style-mode-button`}
-                />
-            </div>
-            <div className="p-portfolio__center-content">
-                <div className="p-portfolio__bckg-circle"></div>
-                <div className="p-portfolio__slogan">
-                    <span className="p-portfolio__slogan-text">THINK</span>
-                    <span className="p-portfolio__slogan-text p-portfolio__slogan-text--bold">
-                        RIGHT,
-                    </span>
-                    <span className="p-portfolio__slogan-text">DO IT</span>
-                    <span className="p-portfolio__slogan-text p-portfolio__slogan-text--bold">
-                        BETTER
-                    </span>
-                </div>
-                <span
-                    className={`icon-${IconTypes["bulb-light"]} p-portfolio__bulb`}
-                />
-                <Image
-                    id="portfolio-self-img"
-                    image={imagesObj["portfolio-self-img"]}
-                    height={4}
-                ></Image>
-            </div>
-            {size.width < 991 ? (
-                <Button id="download-cv-mobile" onClick={downloadCV}>
-                    Download CV
-                </Button>
-            ) : (
-                ""
-            )}
-            <div className="p-portfolio__social-container">
-                <span
-                    className={`icon-${IconTypes["linkedin"]} p-portfolio__social-icon p-portfolio__social-icon--linked-in`}
-                    onClick={() =>
-                        window.open(
-                            "https://www.linkedin.com/in/adrian-santos-mena-66578712a",
-                            "_blank"
-                        )
-                    }
-                ></span>
-                <span
-                    className={`icon-${IconTypes["github"]} p-portfolio__social-icon p-portfolio__social-icon--insta`}
-                    onClick={() =>
-                        window.open(
-                            "https://github.com/adrisantos11?tab=repositories",
-                            "_blank"
-                        )
-                    }
-                ></span>
-                <span
-                    className={`icon-${IconTypes["pinterest"]} p-portfolio__social-icon p-portfolio__social-icon--pinterest`}
-                    onClick={() =>
-                        window.open(
-                            "https://www.pinterest.es/adrisantos11/",
-                            "_blank"
-                        )
-                    }
-                ></span>
-            </div>
+            <div className="p-portfolio__about-me"></div>
 
             <div className="p-portfolio__menu">
                 <Menu
@@ -223,7 +228,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                             disabled: true,
                         },
                     ]}
-                ></Menu>
+                />
             </div>
         </div>
     );
