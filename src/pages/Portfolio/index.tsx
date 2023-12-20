@@ -90,7 +90,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 
     return (
         <div className="p-portfolio">
-            <div className="p-portfolio__presentation">
+            <div className="p-portfolio__presentation" id="home-section">
                 <div className="p-portfolio__background-shadow"></div>
                 <div className="p-portfolio__header">
                     <span
@@ -212,22 +212,28 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     ></span>
                 </div>
             </div>
-            <div className="p-portfolio__about-me"></div>
+            <div className="p-portfolio__about-me" id="about-me-section"></div>
 
             <div className="p-portfolio__menu">
                 <Menu
                     id="portfolio-menu"
                     items={[
-                        { id: "home-item", text: "HOME" },
-                        { id: "about-me-item", text: "ABOUT ME" },
-                        { id: "experience-item", text: "EXPERIENCE" },
-
+                        { id: "home", text: "HOME" },
+                        { id: "about-me", text: "ABOUT ME" },
+                        { id: "experience", text: "EXPERIENCE" },
                         {
                             id: "personal-projects-item",
                             text: "PERSONAL PROJECTS",
                             disabled: true,
                         },
                     ]}
+                    onClick={(id: string, value: string) => {
+                        console.log(id);
+                        window.scrollTo(
+                            0,
+                            document.getElementById(`${id}-section`).offsetTop
+                        );
+                    }}
                 />
             </div>
         </div>

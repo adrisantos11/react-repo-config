@@ -42,6 +42,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
                 props.items.map((item: IMenuItem, index: number) => {
                     return (
                         <span
+                            id={`${item.id}-menu-item`}
                             className={`c-menu__item ${
                                 state.itemSelected === item.id
                                     ? "c-menu__item--active"
