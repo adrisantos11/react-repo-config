@@ -90,7 +90,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 
     return (
         <div className="p-portfolio">
-            <div className="p-portfolio__presentation" id="home-section">
+            <div className="s-presentation" id="home-section">
                 <div className="p-portfolio__background-shadow"></div>
                 <div className="p-portfolio__header">
                     <span
@@ -212,8 +212,20 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     ></span>
                 </div>
             </div>
-            <div className="p-portfolio__about-me" id="about-me-section"></div>
-
+            <div className="s-about-me" id="about-me-section">
+                <span className="s-about-me__title">ABOUT ME</span>
+                <div className="s-about-me__in-dev-text">In development</div>
+                <div className="s-about-me__in-dev-text">
+                    Please, <b>download my CV</b> for further information
+                </div>
+            </div>
+            <div className="s-experience" id="experience-section">
+                <span className="s-about-me__title">EXPERIENCE</span>
+                <div className="s-about-me__in-dev-text">In development</div>
+                <div className="s-about-me__in-dev-text">
+                    Please, <b>download my CV</b> for further information
+                </div>
+            </div>
             <div className="p-portfolio__menu">
                 <Menu
                     id="portfolio-menu"
