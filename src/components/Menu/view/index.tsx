@@ -2,6 +2,7 @@ import * as React from "react";
 import "./index.scss";
 import { reducer, REDUCER_INITIAL_STATE } from "../controller";
 import { IMenu, IMenuItem } from "../model";
+import { useWindowScroll } from "@/utils/custom_hooks";
 
 /**
  * Menu component to display a list of options to navigate
@@ -11,6 +12,11 @@ import { IMenu, IMenuItem } from "../model";
 export const Menu: React.FC<IMenu> = (props: IMenu) => {
     const [state, dispach] = React.useReducer(reducer, REDUCER_INITIAL_STATE);
     const menuElemRef = React.useRef(null);
+    const { scroll } = useWindowScroll();
+
+    const [elementPositions, setElementPositions] = React.useState<number[]>(
+        []
+    );
 
     const onClick = (item: IMenuItem) => {
         props.onClick && props.onClick(item.id, item.text);
@@ -18,6 +24,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
             type: "update_selected",
             itemSelected: item.id,
         });
+        window.scrollTo(0, document.getElementById(item.id).offsetTop);
     };
 
     React.useEffect(() => {
@@ -33,8 +40,79 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
     }, []);
 
     React.useEffect(() => {
-        console.log("state:", state);
-    }, [state]);
+        const positions: number[] = [];
+        props.items.length
+            ? props.items.forEach((item: IMenuItem) => {
+                  if (!item.disabled) {
+                      const element = document.getElementById(item.id);
+                      positions.push(element.offsetTop);
+                  }
+              })
+            : [];
+        setElementPositions(positions);
+    }, [props.items]);
+
+    /**
+     * Auto select option when user scrolls
+     * How it works?
+     *
+     * 1. Need to get the offsetTop positions of the props.items in the previous useEffect.
+     * 2. Find the index of the actual selected item to allocate it in the elementPositions list.
+     *      Ex:
+     *          props.items = ['el1', 'el2', 'el3'];
+     *          elementPositions = [0, 345, 756];
+     *          Selected item = 'el3' => pros.items position = 2 => elementPositions value = 756
+     * 3. Depending on the scroll direction, the logic is different:
+     *      - 'UP' direction:
+     *          Loop until the scroll.position is higher than the [element - 1] position.
+     *          Ex: scroll.position = 100
+     *              element positions = [0, 56, 124, 345, 678]
+     *              Element to select => index = 2 (124)
+     *      - 'DOWN' direction:
+     *          Loop until scroll.position is lower than the [element + 1] position.
+     *          Ex: scroll.position = 465
+     *              element positions = [0, 56, 124, 345, 678]
+     *              Element to select => index = 3 (345)
+     * 4. Stop loop with 'stop' variable
+     */
+    React.useEffect(() => {
+        const position = props.items.findIndex(
+            (item: IMenuItem) => item.id === state.itemSelected
+        );
+        let index = position;
+        let stop = false;
+        if (scroll.direction === "up") {
+            while (index >= 0 && !stop) {
+                if (scroll.position < elementPositions[index - 1]) {
+                    index--;
+                } else if (scroll.position === 0) {
+                    dispach({
+                        type: "update_selected",
+                        itemSelected: props.items[0].id,
+                    });
+                    stop = true;
+                } else {
+                    dispach({
+                        type: "update_selected",
+                        itemSelected: props.items[index].id,
+                    });
+                    stop = true;
+                }
+            }
+        } else if (scroll.direction === "down") {
+            while (index <= props.items.length && !stop) {
+                if (scroll.position > elementPositions[index + 1]) {
+                    index++;
+                } else {
+                    dispach({
+                        type: "update_selected",
+                        itemSelected: props.items[index].id,
+                    });
+                    stop = true;
+                }
+            }
+        }
+    }, [scroll]);
 
     return (
         <div className="c-menu">
@@ -52,6 +130,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
                                 onClick: () => onClick(item),
                             })}
                             {...(index === 0 && { ref: menuElemRef })}
+                            key={`${item.id}-menu-item`}
                         >
                             {item.text}
                         </span>

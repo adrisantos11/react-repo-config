@@ -287,13 +287,6 @@
         width: 90%;
         z-index: 0;
     }
-
-    @media (max-width: 768px) {
-        &__menu {
-            display: none;
-        }
-    }
-
     
     @media (max-width: 991px) {
         
@@ -319,6 +312,10 @@
         }
 
         &__clock {
+            display: none;
+        }
+
+        &__menu {
             display: none;
         }
 

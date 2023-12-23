@@ -7,12 +7,7 @@ import { IconTypes, getIconNames } from "@/assets/icons";
 import { useNavigate } from "react-router-dom";
 import { StyleModeContext } from "@/utils/contexts";
 import useScreenSize from "@/utils/custom_hooks/useScreenSize";
-import {
-    IUrl,
-    useElementOffset,
-    useFetch,
-    useWindowScroll,
-} from "@/utils/custom_hooks";
+import { IUrl, useFetch } from "@/utils/custom_hooks";
 import { fetchDownloadAPI } from "@/utils/custom_hooks/useFetchDownload";
 import Menu from "@/components/Menu";
 import Clock from "@/components/Clock";
@@ -196,13 +191,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                             disabled: true,
                         },
                     ]}
-                    onClick={(id: string, value: string) => {
-                        console.log(id);
-                        window.scrollTo(
-                            0,
-                            document.getElementById(id).offsetTop
-                        );
-                    }}
+                    onClick={(id: string, value: string) => {}}
                 />
             </div>
         </div>
