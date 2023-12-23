@@ -24,7 +24,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
             type: "update_selected",
             itemSelected: item.id,
         });
-        window.scrollTo(0, document.getElementById(item.id).offsetTop);
+        window.scrollTo(0, document.getElementById(item.id).offsetTop - 1);
     };
 
     React.useEffect(() => {
