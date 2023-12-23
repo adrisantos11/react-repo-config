@@ -7,34 +7,15 @@ import { IconTypes, getIconNames } from "@/assets/icons";
 import { useNavigate } from "react-router-dom";
 import { StyleModeContext } from "@/utils/contexts";
 import useScreenSize from "@/utils/custom_hooks/useScreenSize";
-import { IUrl, useFetch } from "@/utils/custom_hooks";
+import {
+    IUrl,
+    useElementOffset,
+    useFetch,
+    useWindowScroll,
+} from "@/utils/custom_hooks";
 import { fetchDownloadAPI } from "@/utils/custom_hooks/useFetchDownload";
 import Menu from "@/components/Menu";
-
-const addZero = (number: number): string => {
-    const stringNumber = String(number);
-    if (stringNumber.length === 1) {
-        return `0${stringNumber}`;
-    } else return stringNumber;
-};
-
-interface IDate {
-    seconds: string;
-    minutes: string;
-    hours: string;
-    day: string;
-    month: string;
-    year: string;
-}
-
-const DATE_INITIAL_STATE: IDate = {
-    seconds: "--",
-    minutes: "--",
-    hours: "--",
-    day: "--",
-    month: "--",
-    year: "--",
-};
+import Clock from "@/components/Clock";
 
 export type IPortfolio = {
     id: string;
@@ -48,24 +29,9 @@ export type IPortfolio = {
 const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
     const navigate = useNavigate();
     const { styleMode, setStyleMode } = React.useContext(StyleModeContext);
-    const [date, setDate] = React.useState<IDate>(DATE_INITIAL_STATE);
     const { size } = useScreenSize();
     const [url, setUrl] = React.useState<IUrl>(null);
     const { data } = useFetch(url, "test", false);
-
-    React.useEffect(() => {
-        setInterval(() => {
-            const date = new Date();
-            setDate({
-                seconds: addZero(date.getSeconds()),
-                minutes: addZero(date.getMinutes()),
-                hours: addZero(date.getHours()),
-                day: addZero(date.getDate()),
-                month: addZero(date.getMonth() + 1),
-                year: addZero(date.getFullYear()),
-            });
-        }, 1000);
-    });
 
     const downloadCV = () =>
         fetchDownloadAPI(
@@ -87,6 +53,10 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
             console.log(endpointData);
         }
     }, [data]);
+
+    React.useEffect(() => {
+        console.log("Render portfolio...");
+    });
 
     return (
         <div className="p-portfolio">
@@ -123,20 +93,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     )}
                 </div>
                 <div className="p-portfolio__clock">
-                    <div className="p-portfolio__date">
-                        <span>{date.day}</span>
-                        <span>/</span>
-                        <span>{date.month}</span>
-                        <span>/</span>
-                        <span>{date.year}</span>
-                    </div>
-                    <div className="p-portfolio__hour">
-                        <span>{date.hours}</span>
-                        <span>:</span>
-                        <span>{date.minutes}</span>
-                        <span>:</span>
-                        <span>{date.seconds}</span>
-                    </div>
+                    <Clock id="portfolio-clock" />
                 </div>
                 <div
                     className="p-portfolio__style-mode-toogle"
@@ -230,9 +187,9 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                 <Menu
                     id="portfolio-menu"
                     items={[
-                        { id: "home", text: "HOME" },
-                        { id: "about-me", text: "ABOUT ME" },
-                        { id: "experience", text: "EXPERIENCE" },
+                        { id: "home-section", text: "HOME" },
+                        { id: "about-me-section", text: "ABOUT ME" },
+                        { id: "experience-section", text: "EXPERIENCE" },
                         {
                             id: "personal-projects-item",
                             text: "PERSONAL PROJECTS",
@@ -243,7 +200,7 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                         console.log(id);
                         window.scrollTo(
                             0,
-                            document.getElementById(`${id}-section`).offsetTop
+                            document.getElementById(id).offsetTop
                         );
                     }}
                 />

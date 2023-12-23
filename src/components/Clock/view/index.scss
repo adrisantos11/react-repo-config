@@ -1,0 +1,42 @@
+@import '../../../styles/main_styles.scss';
+
+.main-app {
+    &.light-mode .c-clock {
+        --clock-date-text-color: #{$grey-6};
+        --clock-hour-text-color: #{$grey-6};
+    }
+
+    &.dark-mode .c-clock {
+        --clock-date-text-color: #{$grey-0};
+        --clock-hour-text-color: #{$grey-0};
+    }
+}
+
+.c-clock {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__date {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        span {
+            @include m-heading-3(500);
+            color: var(--clock-date-text-color);
+        }
+    }
+
+    &__hour {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+
+        span {
+            @include m-body(400);
+            color: var(--clock-hour-text-color);
+        }
+    }
+}
