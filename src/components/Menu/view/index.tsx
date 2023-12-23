@@ -70,11 +70,9 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
      *              Element to select => index = 2 (124)
      *      - 'DOWN' direction:
      *          Loop until scroll.position is lower than the [element + 1] position.
-     *          In this case, as the last element position is 1px higher than the maximun scroll, its
-     *          necessary to add another condition to make it work.
-     *          Ex: scroll.position = 678
+     *          Ex: scroll.position = 100
      *              element positions = [0, 56, 124, 345, 678]
-     *              Element to select => index = 3 (345)
+     *              Element to select => index = 2 (124)
      * 4. Stop loop with 'stop' variable
      */
     React.useEffect(() => {
@@ -106,14 +104,8 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
             }
         } else if (scroll.direction === "down") {
             while (index < props.items.length && !stop) {
-                if (scroll.position > elementPositions[index + 1]) {
+                if (scroll.position > elementPositions[index]) {
                     index++;
-                } else if (scroll.position - 1 < elementPositions[index + 1]) {
-                    dispach({
-                        type: "update_selected",
-                        itemSelected: props.items[index + 1].id,
-                    });
-                    stop = true;
                 } else {
                     dispach({
                         type: "update_selected",
