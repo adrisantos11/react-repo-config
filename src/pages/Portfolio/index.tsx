@@ -90,22 +90,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                 <div className="p-portfolio__clock">
                     <Clock id="portfolio-clock" />
                 </div>
-                <div
-                    className="p-portfolio__style-mode-toogle"
-                    onClick={() => {
-                        if (styleMode === "light") setStyleMode("dark");
-                        else if (styleMode === "dark") setStyleMode("light");
-                    }}
-                >
-                    <span
-                        id="dark-mode-icon"
-                        className={`icon-${
-                            styleMode === "light"
-                                ? IconTypes["moon"]
-                                : IconTypes["sun1"]
-                        } p-portfolio__style-mode-button`}
-                    />
-                </div>
                 <div className="p-portfolio__center-content">
                     <div className="p-portfolio__bckg-circle"></div>
                     <div className="p-portfolio__slogan">
@@ -178,6 +162,23 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                     Please, <b>download my CV</b> for further information
                 </div>
             </div>
+            <div
+                className="p-portfolio__style-mode-toogle"
+                onClick={() => {
+                    if (styleMode === "light") setStyleMode("dark");
+                    else if (styleMode === "dark") setStyleMode("light");
+                }}
+            >
+                <span
+                    id="dark-mode-icon"
+                    className={`icon-${
+                        styleMode === "light"
+                            ? IconTypes["moon"]
+                            : IconTypes["sun1"]
+                    } p-portfolio__style-mode-button`}
+                />
+            </div>
+
             <div className="p-portfolio__menu">
                 <Menu
                     id="portfolio-menu"

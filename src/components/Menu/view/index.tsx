@@ -76,9 +76,6 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
      * 4. Stop loop with 'stop' variable
      */
     React.useEffect(() => {
-        console.log("elementPositions:", elementPositions);
-        console.log("scroll:", scroll.position);
-
         const position = props.items.findIndex(
             (item: IMenuItem) => item.id === state.itemSelected
         );
@@ -86,7 +83,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
         let stop = false;
         if (scroll.direction === "up") {
             while (index >= 0 && !stop) {
-                if (scroll.position < elementPositions[index - 1]) {
+                if (Math.round(scroll.position) < elementPositions[index - 1]) {
                     index--;
                 } else if (scroll.position === 0) {
                     dispach({
@@ -104,7 +101,7 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
             }
         } else if (scroll.direction === "down") {
             while (index < props.items.length && !stop) {
-                if (scroll.position > elementPositions[index]) {
+                if (Math.round(scroll.position) > elementPositions[index]) {
                     index++;
                 } else {
                     dispach({
@@ -116,6 +113,24 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
             }
         }
     }, [scroll]);
+
+    const getSidebarTopPosition = React.useMemo(() => {
+        if (state.itemSelected) {
+            const element = document.getElementById(
+                `${state.itemSelected}-menu-item`
+            );
+            return element.offsetTop;
+        } else return 0;
+    }, [state.itemSelected]);
+
+    const getSidebarHeight = React.useMemo(() => {
+        if (state.itemSelected) {
+            const element = document.getElementById(
+                `${state.itemSelected}-menu-item`
+            );
+            return element.offsetHeight;
+        } else return 0;
+    }, [state.itemSelected]);
 
     return (
         <div className="c-menu">
@@ -142,13 +157,8 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
             <span
                 className="c-menu__side-bar"
                 style={{
-                    top: `${
-                        (100 / props.items.length) *
-                        props.items.findIndex(
-                            (item: IMenuItem) => item.id === state.itemSelected
-                        )
-                    }%`,
-                    height: "1.5rem",
+                    top: `${getSidebarTopPosition}px`,
+                    height: `${getSidebarHeight}px`,
                 }}
             ></span>
         </div>

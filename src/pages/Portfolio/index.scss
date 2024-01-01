@@ -16,7 +16,6 @@
         --shadow-box-bckg-circle-color: #{0px 0px 4px 2px rgba($grey-6, 0.3)
             inset};
 
-        // --shadow-box-bckg-circle-color: none;
         --bckg-shadow-color: #{linear-gradient(
                 270deg,
                 rgba($grey-2, 0.4) 0%,
@@ -29,6 +28,9 @@
         --social-icon-color: #{$grey-5};
         --social-icon-hover-color: #{$grey-6};
         --mobile-social-icon-color: #{$grey-6};
+
+        --section-title-color: #{$grey-3};
+        --section-in-dev-text-color: #{$grey-3};
     }
 
     &.dark-mode .p-portfolio {
@@ -57,6 +59,9 @@
         --social-icon-color: #{$grey-2};
         --social-icon-hover-color: #{$grey-0};
         --mobile-social-icon-color: #{$grey-0};
+
+        --section-title-color: #{$grey-5};
+        --section-in-dev-text-color: #{$grey-5};
     }
 }
 
@@ -406,7 +411,7 @@
         padding: 6rem 3rem;      
     }
 }
-
+    
 .s-about-me, .s-experience {
     position: relative;
     width: 100%;
@@ -428,12 +433,12 @@
         font-style: normal;
         font-weight: 700;
         letter-spacing: 0.25rem;   
-        color: $grey-3;
+        color: var(--section-title-color);
     }
 
     &__in-dev-text {
         @include m-heading-2;
-        color: $grey-3;
+        color: var(--section-in-dev-text-color);
         text-align: center;
     }
 
