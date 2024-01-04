@@ -2,7 +2,6 @@ import * as React from "react";
 import "./index.scss";
 import { Outlet } from "react-router-dom";
 import { IStyleModeContext, StyleModeContext } from "@utils/contexts";
-import { Analytics } from '@vercel/analytics/react';
 
 const STYLE_MODE_INITIAL_STATE = "light";
 
@@ -31,7 +30,6 @@ const MainApp: React.FC<IMainApp> = (props: IMainApp) => {
     return (
         <StyleModeContext.Provider value={styleModeMemoContext}>
             <div className={`main-app ${styleMode}-mode`}>
-                <Analytics />
                 <Outlet></Outlet>
             </div>
         </StyleModeContext.Provider>
