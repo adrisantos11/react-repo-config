@@ -150,12 +150,12 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
                 </div>
             </div>
             <div className="s-about-me" id="about-me-section">
-                {/* <span className="s-about-me__title">ABOUT ME</span>
+                <span className="s-about-me__title">ABOUT ME</span>
                 <div className="s-about-me__in-dev-text">In development</div>
                 <div className="s-about-me__in-dev-text">
                     Please, <b>download my CV</b> for further information
-                </div> */}
-                <Carrousel id="testing"></Carrousel>
+                </div>
+                {/* <Carrousel id="testing"></Carrousel> */}
             </div>
             <div className="s-experience" id="experience-section">
                 <span className="s-about-me__title">EXPERIENCE</span>

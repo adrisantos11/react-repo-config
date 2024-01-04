@@ -33,6 +33,6 @@
         /* Asegúrate de que el tamaño incluya el relleno y el borde */
         margin-right: 10px;
         /* Opcional: añade margen entre elementos si es necesario */
-        background-color: $grey-0;
+        background-color: rgba($color: $grey-0, $alpha: 0.3);
     }
 }
