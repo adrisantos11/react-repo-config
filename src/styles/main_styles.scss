@@ -28,19 +28,16 @@ body {
     margin-bottom: 0.25rem;
 }
 
-/* width */
 ::-webkit-scrollbar {
     width: 1rem;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    background: $grey-6;
+    background: $grey-5;
     border-radius: 0.75rem;
     border: 4px solid white;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: $grey-5;
+    background: $grey-4;
 }
