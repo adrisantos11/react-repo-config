@@ -1,0 +1,38 @@
+@import '../../../styles/main_styles.scss';
+
+.main-app {
+    &.light-mode .c-carrousel {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-carrousel {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.c-carrousel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    /* Cambiado a 'auto' para que aparezca la barra de desplazamiento solo cuando sea necesario */
+    overflow-x: auto;
+    background-color: transparent;
+    border: 1px $grey-3 solid;
+    border-radius: 4px;
+    padding: 2rem;
+    box-sizing: border-box;
+    scroll-snap-type: x mandatory;
+
+    &__element {
+        flex: 0 0 100%;
+        /* Utiliza flex para ocupar el 100% del ancho del contenedor */
+        height: 100%;
+        box-sizing: border-box;
+        /* Asegúrate de que el tamaño incluya el relleno y el borde */
+        margin-right: 10px;
+        /* Opcional: añade margen entre elementos si es necesario */
+        background-color: $grey-0;
+    }
+}
