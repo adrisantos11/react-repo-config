@@ -64,7 +64,15 @@ export const routerObject = () => {
                 ),
                 children: [
                     {
-                        path: "/",
+                        path: "",
+                        element: (
+                            <React.Suspense>
+                                <Portfolio id="portfolio-page" />{" "}
+                            </React.Suspense>
+                        ),
+                    },
+                    {
+                        path: "app",
                         element: (
                             <>
                                 <Navbar id="navbar-test"></Navbar>
@@ -73,7 +81,7 @@ export const routerObject = () => {
                         ),
                         children: [
                             {
-                                path: "/",
+                                path: "navigation",
                                 element: <Navigate />,
                             },
                             {
@@ -123,14 +131,6 @@ export const routerObject = () => {
                                 ],
                             },
                         ],
-                    },
-                    {
-                        path: "portfolio",
-                        element: (
-                            <React.Suspense>
-                                <Portfolio id="portfolio-page" />{" "}
-                            </React.Suspense>
-                        ),
                     },
                 ],
             },
