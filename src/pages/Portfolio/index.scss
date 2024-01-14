@@ -487,7 +487,6 @@
 		max-height: 100%;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-		// grid-template-rows: repeat(5, 1fr);
 		grid-auto-rows: minmax(10rem, 1fr);
 		gap: 1rem;
 	}

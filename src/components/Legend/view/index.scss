@@ -1,0 +1,59 @@
+@import "../../../styles/main_styles.scss";
+
+.main-app {
+    &.light-mode .c-legend {
+        // Example: --btn-active-bckg-color: red;
+    }
+
+    &.dark-mode .c-legend {
+        // Example: --btn-active-bckg-color: red;
+    }
+}
+
+.c-legend {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    cursor: pointer;
+    gap: 3rem;
+
+    &--vertical {
+        flex-direction: column;
+    }
+
+    &--horizontal {
+        flex-direction: row;
+    }
+
+    &__item {
+        @include m-body();
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        opacity: 0.4;
+        width: fit-content;
+
+        &--selected {
+            opacity: 1;
+        }
+    }
+
+    &__tag {
+        height: 0.5rem;
+        width: 6rem;
+        background-color: $secondary-color;
+        border-radius: 1rem;
+    }
+
+    &__text {
+        @include m-body();
+        width: fit-content;
+        white-space: nowrap;
+    }
+}

@@ -12,6 +12,7 @@ import { fetchDownloadAPI } from "@/utils/custom_hooks/useFetchDownload";
 import Menu from "@/components/Menu";
 import Clock from "@/components/Clock";
 import Box from "@/components/Box";
+import Legend from "@/components/Legend";
 
 export type IPortfolio = {
 	id: string;
@@ -184,32 +185,17 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 							</Box>
 						))}
 					</div>
-					<div className="s-about-me__box-types">
-						<div className="s-about-me__type">
-							<span className="s-about-me__type-tag" />
-							<span className="s-about-me__type-text">
-								EXPERT
-							</span>
-						</div>
-						<div className="s-about-me__type">
-							<span className="s-about-me__type-tag" />
-							<span className="s-about-me__type-text">
-								EXPERIENCED
-							</span>
-						</div>
-						<div className="s-about-me__type">
-							<span className="s-about-me__type-tag" />
-							<span className="s-about-me__type-text">
-								INTERMEDIATE
-							</span>
-						</div>
-						<div className="s-about-me__type">
-							<span className="s-about-me__type-tag" />
-							<span className="s-about-me__type-text">
-								LEARNING
-							</span>
-						</div>
-					</div>
+					<Legend
+						id="legend-testing-1"
+						direction="vertical"
+						items={[
+							{ id: "expert", value: "Expert" },
+							{ id: "experienced", value: "Experienced" },
+							{ id: "intermediate", value: "Intermediate" },
+							{ id: "basic-learning", value: "Basic / Learning" },
+						]}
+						itemSelected={0}
+					/>
 				</div>
 				{/* <Carrousel id="testing"></Carrousel> */}
 			</div>

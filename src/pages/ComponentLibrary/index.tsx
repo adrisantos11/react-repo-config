@@ -7,6 +7,7 @@ import Link from "@components/Link";
 
 import { useNavigate } from "react-router-dom";
 import Box from "@/components/Box";
+import Legend from "@/components/Legend";
 
 export type IComponentLibrary = {
     id: string;
@@ -62,6 +63,18 @@ const ComponentLibrary: React.FC<IComponentLibrary> = (
             </div>
             <div className="p-component-library__component-wrapper">
                 <Box id="box-testing-1">Hello</Box>
+            </div>
+            <div className="p-component-library__component-wrapper">
+                <Legend
+                    id="legend-testing-1"
+                    direction="vertical"
+                    items={[
+                        { id: "test1", value: "Test 1" },
+                        { id: "test2", value: "Test 2" },
+                        { id: "test3", value: "Test 3" },
+                    ]}
+                    itemSelected={0}
+                />
             </div>
         </div>
     );
