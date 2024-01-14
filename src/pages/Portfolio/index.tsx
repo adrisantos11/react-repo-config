@@ -11,10 +11,25 @@ import { IUrl, useFetch } from "@/utils/custom_hooks";
 import { fetchDownloadAPI } from "@/utils/custom_hooks/useFetchDownload";
 import Menu from "@/components/Menu";
 import Clock from "@/components/Clock";
-import Carrousel from "@/components/Carrousel";
+import Box from "@/components/Box";
 
 export type IPortfolio = {
 	id: string;
+};
+
+const HARD_SKILLS = {
+	expert: [
+		"ReactJS",
+		"JavaScript",
+		"Typescript",
+		"CSS",
+		"Sass",
+		"HTML",
+		"POO",
+		"Git / Github",
+		"Webpack",
+		"JSON",
+	],
 };
 
 /**
@@ -163,91 +178,11 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 
 				<div className="s-about-me__info">
 					<div className="s-about-me__boxes">
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-							<span className="s-about-me__box-item">
-								JAVASCRIPT
-							</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-							<span className="s-about-me__box-item">
-								REACTJS
-							</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-							<span className="s-about-me__box-item">
-								TYPESCRIPT
-							</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-							<span className="s-about-me__box-item">CSS</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">SASS</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">HTML</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">POO</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">
-								GIT / GITHUB
-							</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">
-								WEBPACK
-							</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">JSON</span>
-						</div>
-
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">JSON</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">JSON</span>
-						</div>
-						<div className="s-about-me__box">
-							<span className="s-about-me__box-decoration-1"></span>
-							<span className="s-about-me__box-decoration-2"></span>
-
-							<span className="s-about-me__box-item">JSON</span>
-						</div>
+						{HARD_SKILLS["expert"].map((skill: string) => (
+							<Box id={`${skill.toLowerCase()}-box`}>
+								{skill.toUpperCase()}
+							</Box>
+						))}
 					</div>
 					<div className="s-about-me__box-types">
 						<div className="s-about-me__type">

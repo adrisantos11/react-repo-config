@@ -6,6 +6,7 @@ import Dropdown from "@components/Dropdown";
 import Link from "@components/Link";
 
 import { useNavigate } from "react-router-dom";
+import Box from "@/components/Box";
 
 export type IComponentLibrary = {
     id: string;
@@ -58,6 +59,9 @@ const ComponentLibrary: React.FC<IComponentLibrary> = (
                     text="Go to home page"
                     onClick={() => navigate("/")}
                 ></Link>
+            </div>
+            <div className="p-component-library__component-wrapper">
+                <Box id="box-testing-1">Hello</Box>
             </div>
         </div>
     );
