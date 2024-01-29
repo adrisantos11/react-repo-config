@@ -13,6 +13,7 @@ import Menu from "@/components/Menu";
 import Clock from "@/components/Clock";
 import Box from "@/components/Box";
 import Legend from "@/components/Legend";
+import skills from "@assets/skills.json";
 
 export type IPortfolio = {
 	id: string;
@@ -179,9 +180,9 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 
 				<div className="s-about-me__info">
 					<div className="s-about-me__boxes">
-						{HARD_SKILLS["expert"].map((skill: string) => (
-							<Box id={`${skill.toLowerCase()}-box`}>
-								{skill.toUpperCase()}
+						{skills.map((skill: any) => (
+							<Box id={`${skill["skill"].toLowerCase()}-box`}>
+								{skill["skill"].toLowerCase()}
 							</Box>
 						))}
 					</div>
