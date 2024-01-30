@@ -179,13 +179,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 				</div>
 
 				<div className="s-about-me__info">
-					<div className="s-about-me__boxes">
-						{skills.map((skill: any) => (
-							<Box id={`${skill["skill"].toLowerCase()}-box`}>
-								{skill["skill"].toLowerCase()}
-							</Box>
-						))}
-					</div>
 					<Legend
 						id="legend-testing-1"
 						direction="vertical"
@@ -197,6 +190,19 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 						]}
 						itemSelected={0}
 					/>
+					<div className="s-about-me__boxes">
+						{skills.map((skill: any) => (
+							<Box
+								id={`${skill["skill"].toLowerCase()}-box`}
+								title={skill["skill"].toUpperCase()}
+								experience={skill["experience"]}
+								skill={skill["level"]
+									.replace(" ", "-")
+									.toLowerCase()}
+								tags={skill["tags"]}
+							/>
+						))}
+					</div>
 				</div>
 				{/* <Carrousel id="testing"></Carrousel> */}
 			</div>

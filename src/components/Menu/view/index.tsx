@@ -3,6 +3,7 @@ import "./index.scss";
 import { reducer, REDUCER_INITIAL_STATE } from "../controller";
 import { IMenu, IMenuItem } from "../model";
 import { useWindowScroll } from "@/utils/custom_hooks";
+import { IconTypes } from "@/assets/icons";
 
 /**
  * Menu component to display a list of options to navigate
@@ -150,7 +151,10 @@ export const Menu: React.FC<IMenu> = (props: IMenu) => {
                             {...(index === 0 && { ref: menuElemRef })}
                             key={`${item.id}-menu-item`}
                         >
-                            {item.text}
+                            <span
+                                className={`c-menu__icon icon-${IconTypes["home"]}`}
+                            />
+                            <span className="c-menu__text">{item.text}</span>
                         </span>
                     );
                 })}

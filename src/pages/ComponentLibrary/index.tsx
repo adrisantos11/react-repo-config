@@ -8,6 +8,7 @@ import Link from "@components/Link";
 import { useNavigate } from "react-router-dom";
 import Box from "@/components/Box";
 import Legend from "@/components/Legend";
+import Menu from "@/components/Menu";
 
 export type IComponentLibrary = {
     id: string;
@@ -61,8 +62,46 @@ const ComponentLibrary: React.FC<IComponentLibrary> = (
                     onClick={() => navigate("/")}
                 ></Link>
             </div>
-            <div className="p-component-library__component-wrapper">
-                <Box id="box-testing-1">Hello</Box>
+            <div
+                className="p-component-library__component-wrapper"
+                style={{ width: "70%" }}
+            >
+                <Box
+                    id="box-testing-1"
+                    skill="expert"
+                    tags={[]}
+                    title="Test 1"
+                    experience="1"
+                />
+                <Box
+                    id="box-testing-2"
+                    skill="proficient"
+                    disabled
+                    tags={[]}
+                    title="Test 2"
+                    experience="1"
+                />
+                <Box
+                    id="box-testing-3"
+                    skill="intermediate"
+                    tags={[]}
+                    title="Test 3"
+                    experience="1"
+                />
+                <Box
+                    id="box-testing-4"
+                    skill="novice"
+                    tags={[]}
+                    title="Test 4"
+                    experience="1"
+                />
+                <Box
+                    id="box-testing-5"
+                    skill="to-learn"
+                    tags={[]}
+                    title="Test 5"
+                    experience="1"
+                />
             </div>
             <div className="p-component-library__component-wrapper">
                 <Legend
@@ -75,6 +114,16 @@ const ComponentLibrary: React.FC<IComponentLibrary> = (
                     ]}
                     itemSelected={0}
                 />
+            </div>
+            <div className="p-component-library__component-wrapper">
+                {/* <Menu
+                    id="testing-menu"
+                    items={[
+                        { id: "menu-item-1", text: "Test1" },
+                        { id: "menu-item-2", text: "Test2" },
+                        { id: "menu-item-3", text: "Test3" },
+                    ]}
+                ></Menu> */}
             </div>
         </div>
     );

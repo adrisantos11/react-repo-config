@@ -38,7 +38,7 @@
     line-height: 1.5rem;
     font-style: normal;
     font-weight: $font-width;
-    letter-spacing: 0.25rem;
+    letter-spacing: 0.125rem;
 }
 
 @mixin m-body($font-width: 400) {
@@ -56,6 +56,15 @@
     font-family: "Assistant", sans-serif;
     font-size: 0.75rem;
     line-height: 1rem;
+    font-style: normal;
+    font-weight: $font-width;
+}
+
+@mixin m-tag($font-width: 400) {
+    @extend %ph-text-select;
+    font-family: "Assistant", sans-serif;
+    font-size: 0.625rem;
+    line-height: 0.75rem;
     font-style: normal;
     font-weight: $font-width;
 }

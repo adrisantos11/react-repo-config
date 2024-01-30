@@ -2,271 +2,271 @@
     {
         "skill": "ReactJS",
         "level": "Expert",
-        "years": 4,
+        "experience": 4,
         "tags": ["Web Development", "Front-end", "Design system"]
     },
     {
         "skill": "TypeScript",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "JavaScript",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "CSS",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Sass",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "HTML",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "JSON",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Webpack",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "esLint",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Python",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Git",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Github",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Gitflow",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "SOLID",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "SCRUM",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Kanban",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "MySQL",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "APIs",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Unitary testing",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "FIGMA",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Laravel",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Node.js",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "LitElement",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Pandas",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "E2E testing",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Keras",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Spark",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Java",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Vue",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Vercel",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Next.js",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Astro",
         "level": "To learn",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Design systems",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Storybook",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "CI/CD",
         "level": "Proficient",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Atomic design",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "MCV",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "PostCSS",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "MCV",
         "level": "Intermediate",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Github actions",
         "level": "To learn",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Playwright / Cypress",
         "level": "To learn",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "Jenkins",
         "level": "To learn",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "AWS / Cloudfront",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "AEM",
         "level": "Novice",
-        "years": 0,
+        "experience": 0,
         "tags": []
     },
     {
         "skill": "BEM (CSS)",
         "level": "Expert",
-        "years": 0,
+        "experience": 0,
         "tags": []
     }
 ]

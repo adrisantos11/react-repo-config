@@ -20,22 +20,41 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 0.5rem;
+    padding-right: 1rem;
 
     &__item {
-        @include m-body();
         position: relative;
-        color: var(--menu-text-color);
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
         cursor: pointer;
-        transition: all 0.2s ease;
-        margin-right: 1rem;
 
         &--active {
-            font-weight: 700;
+            .c-menu__text {
+                font-weight: 700;
+            }
         }
 
         &--disabled {
-            color: var(--menu-disabled-text-color);
             cursor: auto;
+            .c-menu__text {
+                color: var(--menu-disabled-text-color);
+            }
+            .c-menu__icon::before {
+                color: var(--menu-disabled-text-color) !important;
+            }
+        }
+    }
+
+    &__text {
+        @include m-body();
+        color: var(--menu-text-color);
+        transition: all 0.2s ease;
+    }
+
+    &__icon {
+        &::before {
+            color: $grey-6 !important;
         }
     }
 
