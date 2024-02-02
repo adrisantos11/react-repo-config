@@ -11,12 +11,11 @@ export const REDUCER_INITIAL_STATE: IReducer = {
     itemSelected: null
 }
 
-export const LEGEND_COLORS = ['#419bc7'
-,'#254e70'
-,'#0d1d2a'
-,'#abdef7'
-,'#67727b'
-,'#35434f']
+export const LEGEND_COLORS = ['#f23b3b'
+,'#ad3bf2'
+,'#3ed856'
+,'#3b84f2'
+,'transparent']
 
 export const reducer = (state: IReducer, action: any): IReducer => {
     const { type, id } = action;
@@ -28,7 +27,7 @@ export const reducer = (state: IReducer, action: any): IReducer => {
     } else if (type === 'select_item') {
         return {
             ...state,
-            itemSelected: id
+            itemSelected: id === state.itemSelected ? null : id
         }
     }
 }

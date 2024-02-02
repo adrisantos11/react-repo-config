@@ -12,7 +12,11 @@ export const Box: React.FC<IBox> = (props: IBox) => {
     const [state, dispach] = React.useReducer(reducer, REDUCER_INITIAL_STATE);
 
     return (
-        <div className={`c-box ${props.disabled ? "c-box--disabled" : ""}`}>
+        <div
+            className={`c-box ${props.hover ? "c-box--hover" : ""} ${
+                props.disabled ? "c-box--disabled" : ""
+            }`}
+        >
             <div className="c-box__info">
                 <span className="c-box__title">{props.title}</span>
                 <div className="c-box__subtitle">
@@ -36,7 +40,11 @@ export const Box: React.FC<IBox> = (props: IBox) => {
                       ))
                     : "--"}
             </div>
-            <span className="c-box__children">{props.children}</span>
+            {props.children ? (
+                <span className="c-box__children">{props.children}</span>
+            ) : (
+                ""
+            )}
         </div>
     );
 };

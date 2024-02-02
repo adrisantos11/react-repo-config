@@ -35,6 +35,16 @@ export const Legend: React.FC<ILegend> = (props: ILegend) => {
                             props.onClickOption(item.id, LEGEND_COLORS[index]);
                         dispach({ type: "select_item", id: item.id });
                     }}
+                    onMouseEnter={(ev) => {
+                        ev.preventDefault();
+                        props.onMouseEnterOption &&
+                            props.onMouseEnterOption(item.id);
+                    }}
+                    onMouseLeave={(ev) => {
+                        ev.preventDefault();
+                        props.onMouseLeaveOption &&
+                            props.onMouseLeaveOption(item.id);
+                    }}
                 >
                     <span
                         className="c-legend__tag"

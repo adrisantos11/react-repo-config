@@ -46,12 +46,42 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 	const [url, setUrl] = React.useState<IUrl>(null);
 	const { data } = useFetch(url, "test", false);
 
+	const [hoveredLegendItem, setHoveredLegendItem] =
+		React.useState<string>(null);
+	const [selectedLegendItem, setSelectedLegendItem] =
+		React.useState<string>(null);
+
 	const downloadCV = () =>
 		fetchDownloadAPI(
 			// "http://localhost:3000/get-cv",
 			"https://sm-api-adrisantos11.vercel.app/get-cv",
 			"Adrián_Santos_2023"
 		);
+
+	const setBoxListMemo = React.useMemo(() => {
+		return (
+			<div className="s-about-me__boxes">
+				{skills.map((skill: any) => {
+					const levelLowerCase = skill["level"]
+						.replace(" ", "-")
+						.toLowerCase();
+					return (
+						(!selectedLegendItem ||
+							selectedLegendItem === levelLowerCase) && (
+							<Box
+								id={`${skill["skill"].toLowerCase()}-box`}
+								title={skill["skill"].toUpperCase()}
+								experience={skill["experience"]}
+								skill={levelLowerCase}
+								tags={skill["tags"]}
+								hover={hoveredLegendItem === levelLowerCase}
+							/>
+						)
+					);
+				})}
+			</div>
+		);
+	}, [hoveredLegendItem, selectedLegendItem]);
 
 	React.useEffect(() => {
 		setUrl({
@@ -67,9 +97,9 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 		}
 	}, [data]);
 
-	React.useEffect(() => {
-		console.log("Render portfolio...");
-	});
+	// React.useEffect(() => {
+	// 	console.log("Render portfolio...");
+	// });
 
 	return (
 		<div className="p-portfolio">
@@ -184,25 +214,25 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 						direction="vertical"
 						items={[
 							{ id: "expert", value: "Expert" },
-							{ id: "experienced", value: "Experienced" },
+							{ id: "proficient", value: "Proficient" },
 							{ id: "intermediate", value: "Intermediate" },
-							{ id: "basic-learning", value: "Basic / Learning" },
+							{ id: "novice", value: "Novice" },
+							{ id: "to-learn", value: "To learn" },
 						]}
 						itemSelected={0}
+						onClickOption={(id: string) =>
+							id === selectedLegendItem
+								? setSelectedLegendItem(() => null)
+								: setSelectedLegendItem(() => id)
+						}
+						onMouseEnterOption={(id: string) =>
+							setHoveredLegendItem(() => id)
+						}
+						onMouseLeaveOption={(id: string) =>
+							setHoveredLegendItem(() => null)
+						}
 					/>
-					<div className="s-about-me__boxes">
-						{skills.map((skill: any) => (
-							<Box
-								id={`${skill["skill"].toLowerCase()}-box`}
-								title={skill["skill"].toUpperCase()}
-								experience={skill["experience"]}
-								skill={skill["level"]
-									.replace(" ", "-")
-									.toLowerCase()}
-								tags={skill["tags"]}
-							/>
-						))}
-					</div>
+					{setBoxListMemo}
 				</div>
 				{/* <Carrousel id="testing"></Carrousel> */}
 			</div>

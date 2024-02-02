@@ -2,20 +2,26 @@
     {
         "skill": "ReactJS",
         "level": "Expert",
-        "experience": 4,
+        "experience": 5,
         "tags": ["Web Development", "Front-end", "Design system"]
     },
     {
         "skill": "TypeScript",
         "level": "Proficient",
-        "experience": 0,
-        "tags": []
+        "experience": 5,
+        "tags": [
+            "Web development",
+            "Front-end",
+            "Interfaces",
+            "Typing",
+            "Decorators"
+        ]
     },
     {
         "skill": "JavaScript",
         "level": "Proficient",
         "experience": 0,
-        "tags": []
+        "tags": ["Web development", "Front-end", "ES6/ES2015+", "Algorithms"]
     },
     {
         "skill": "CSS",

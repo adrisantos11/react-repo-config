@@ -7,6 +7,8 @@ export type ILegend = {
     }[];
     itemSelected: number;
     onClickOption?: (id: string, color: string) => void;
+    onMouseEnterOption?: (id: string) => void;
+    onMouseLeaveOption?: (id: string) => void;
 };
 
 export type IReducer = {

@@ -6,6 +6,7 @@ export type IBox = {
     experience: string;
     skill: 'expert' | 'proficient' | 'intermediate' | 'novice' | 'to-learn';
     tags: string[];
+    hover?: boolean;
     disabled?: boolean;
     children?: ReactNode;
 };
