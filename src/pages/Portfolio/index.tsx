@@ -74,7 +74,9 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 								experience={skill["experience"]}
 								skill={levelLowerCase}
 								tags={skill["tags"]}
-								hover={hoveredLegendItem === levelLowerCase}
+								{...(hoveredLegendItem && {
+									hover: hoveredLegendItem === levelLowerCase,
+								})}
 							/>
 						)
 					);
@@ -96,10 +98,6 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 			console.log(endpointData);
 		}
 	}, [data]);
-
-	// React.useEffect(() => {
-	// 	console.log("Render portfolio...");
-	// });
 
 	return (
 		<div className="p-portfolio">
@@ -225,12 +223,12 @@ const Portfolio: React.FC<IPortfolio> = (props: IPortfolio) => {
 								? setSelectedLegendItem(() => null)
 								: setSelectedLegendItem(() => id)
 						}
-						onMouseEnterOption={(id: string) =>
-							setHoveredLegendItem(() => id)
-						}
-						onMouseLeaveOption={(id: string) =>
-							setHoveredLegendItem(() => null)
-						}
+						onMouseEnterOption={(id: string) => {
+							setHoveredLegendItem(() => id);
+						}}
+						onMouseLeaveOption={(id: string) => {
+							setHoveredLegendItem(() => null);
+						}}
 					/>
 					{setBoxListMemo}
 				</div>

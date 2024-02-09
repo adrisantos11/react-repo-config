@@ -13,9 +13,13 @@ export const Box: React.FC<IBox> = (props: IBox) => {
 
     return (
         <div
-            className={`c-box ${props.hover ? "c-box--hover" : ""} ${
-                props.disabled ? "c-box--disabled" : ""
-            }`}
+            className={`c-box ${
+                props.hover !== undefined
+                    ? props.hover === true
+                        ? "c-box--hover"
+                        : "c-box--no-hover"
+                    : ""
+            } ${props.disabled ? "c-box--disabled" : ""}`}
         >
             <div className="c-box__info">
                 <span className="c-box__title">{props.title}</span>

@@ -11,7 +11,6 @@ module.exports = {
         publicPath: "/",
         clean: true,
     },
-    devtool: "inline-source-map",
     devServer: {
         static: path.resolve(__dirname, "dist"),
         hot: true,
